@@ -1,7 +1,7 @@
 bootstrap
 ==
 
-/backend
+#/backend
 
 A seed project to create a backend with Axon,Spring and Hibernate.
 
@@ -22,7 +22,7 @@ Simple functionality like
 	Assigning homepages to user roles
 	
 
-/frontend
+#/frontend
 
 Will be coming in soon
 	
