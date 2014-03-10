@@ -15,8 +15,11 @@ DB Connectivity,Transaction and Logging Configuration,Unit/Integration Test setu
 
 Simple functionality like
 	Services for user login
+	
 	Forgot password
+	
 	Assigning homepages to user roles
+	
 
 /frontend
 
