@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+
+    <student_enquiry ENQUIRY_ID="E001" RAISED_ON="2013-11-08" STUDENT_ID="S001" CURRENT_LEAD_PLAN="10" />
+    <student_enquiry ENQUIRY_ID="E002" RAISED_ON="2013-12-08" STUDENT_ID="S001" CURRENT_LEAD_PLAN="11" />
+    <student_enquiry ENQUIRY_ID="E003" RAISED_ON="2013-12-08" STUDENT_ID="S001" CURRENT_LEAD_PLAN="12" />
+    <student_enquiry ENQUIRY_ID="E004" RAISED_ON="2013-12-08" STUDENT_ID="S001" CURRENT_LEAD_PLAN="13" />
+    <student_enquiry ENQUIRY_ID="E005" RAISED_ON="2013-12-08" STUDENT_ID="S002" CURRENT_LEAD_PLAN="14" />
+
+</dataset>

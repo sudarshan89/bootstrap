@@ -1,0 +1,21 @@
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+</head>
+<body>
+Dear ${firstName},
+<br>
+<h3><p style="color: #cc0000; font-size: 18pt">Greetings from entrancebook...</p></h3>
+<p>We are hereby sending the details of the next real-time test. Please take your time and participate in this test.</p>
+<table>
+<tr><td><b>Test Name :</b></td><td> ${examLabel}	<br></td></tr>
+<tr><td><b>Date	     :</b></td><td> ${scheduledOn}<br></td></tr>
+<tr><td><b>Duration  :</b></td><td> ${durationHour} : ${durationMin} Hrs</br></td></tr>
+<tr><td><b>Time      :</b></td><td> ${scheduledTime}<br></td></tr>
+</table>	
+<p>Please make sure you log in at least 15 minutes before the scheduled time to understand the features of real time. </p>
+<p>We also recommend you to please go through our Help Center to read about us.</p>
+    #parse("org/_thanks&Regards.vm")
+    #parse("org/_customerSupprot.vm")
+    #parse("org/_disclaimer.vm")
+</body>
+</html>

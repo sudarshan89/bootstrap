@@ -1,0 +1,18 @@
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+</head>
+<body>
+Dear ${firstName},
+<br>
+<p style="color: #cc0000; font-size: 18pt;font-weight:bold">Thanks for opting the trial package.</p>
+<p>You have opted for the trial package - ${studentPlanPhase} package.  </p>
+<p> The trial package is valid for 30 days and will expire on ${planEndDate}. You will get to know the first hand experience on the features, its benefits and its user friendliness.</p>
+<p> Before exploring the trial package, we strongly recommend you to go through our entrancebook - <a style="margin-right:5px" href=" https://entrancebook.zendesk.com/hc/en-us/categories/200098533-Medical-PG-entrancebook">help center</a> to know the details of the portal and its best practices. This will help you to plan accordingly while you subscribe for paid packages.</p>
+<br/>
+We wish you all the best.
+<br/>
+    #parse("org/_thanks&Regards.vm")
+    #parse("org/_customerSupprot.vm")
+    #parse("org/_disclaimer.vm")
+</body>
+</html>

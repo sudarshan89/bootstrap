@@ -1,0 +1,20 @@
+<html xmlns='http://www.w3.org/1999/xhtml'>
+ <head>
+ </head>
+ <body>
+ Dear Dr.${firstName},
+<br>
+<p style="color: #cc3300; font-size: 15pt"><b>Thanks for your participation as 'Subject Specialist' </b></p>
+Macula Healthcare Pvt Ltd, is honored to have you as Subject Specialist for ${facultySubject} subject
+<p>Below is the login detail to access the web-application at <a href="www.entrancebook.com" target="_blank">www.entrancebook.com</a>. We request you to please login and change the password.</p>
+<blockquote><blockquote><p>Login ID : ${userName}<p></blockquote></blockquote>
+<blockquote><blockquote><p>Password : ${password}<p></blockquote></blockquote>
+<p>Before exploring the trial package, we strongly recommend you to go through our  <a style="margin-right:5px" href="https://entrancebook.zendesk.com/hc/en-us/categories/200098533-Medical-PG-entrancebook
+">entrancebook - help center</a> to know the details of the portal and its best practices and especially your  <a style="margin-right:5px" href="https://entrancebook.zendesk.com/hc/en-us/sections/200305783-Roles-in-Entrancebook
+">role in the entrancebook.</a></p>
+<p>We again thank you for your contribution to entrancebook.</p>
+     #parse("org/_thanks&Regards.vm")
+     #parse("org/_customerSupprot.vm")
+     #parse("org/_disclaimer.vm")
+ </body>
+</html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--suppress ALL -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:mockito="http://www.mockito.org/spring/mockito"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/jdbc
+       http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.mockito.org/spring/mockito classpath:spring/mockito.xsd">
+
+
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+
+    <bean id="commandGateway" class="org.nthdimenzion.cqrs.stubs.StubCommandGateway"/>
+
+
+    <context:component-scan base-package="org.nthdimenzion.common.service"/>
+    <context:component-scan base-package="org.nthdimenzion.crud"/>
+    <context:component-scan base-package="org.nthdimenzion.ddd.infrastructure.stubs"/>
+
+    <context:component-scan base-package="com.macula.student.query"/>
+    <context:component-scan base-package="com.macula.masterdata.view"/>
+    <context:component-scan base-package="com.macula.masterdata.service"/>
+    <context:component-scan base-package="com.macula.questionbank.query"/>
+    <context:component-scan base-package="com.macula.studentenquiry.service"/>
+
+
+<!--    <context:component-scan base-package="com.macula.student.service"/>-->
+    <context:component-scan base-package="com.macula.sharedkernel.query"/>
+    <context:component-scan base-package="com.macula.faculty.query"/>
+    <context:component-scan base-package="com.macula.studentenquiry.query"/>
+    <context:component-scan base-package="com.macula.admindashboard.query"/>
+    <context:component-scan base-package="com.macula.notification.query"/>
+    <context:component-scan base-package="com.macula.subscription.query"/>
+    <context:component-scan base-package="com.macula.selfstudy.query"/>
+    <context:component-scan base-package="com.macula.infomercial.query"/>
+
+
+    <bean id="studentExaminationDao" class="com.macula.student.service.StudentExaminationDao"/>
+
+    <mvc:annotation-driven validator="validator"/>
+
+<!--
+    <mockito:mock id="studentExaminationService" class="com.macula.student.service.StudentExaminationService" />
+
+    <mockito:mock id="studentProfileService" class="com.macula.student.service.StudentProfileService" />
+-->
+
+    <mockito:mock id="mailService" class="org.nthdimenzion.security.application.services.MailService" />
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="org.h2.Driver"/>
+        <property name="url" value="jdbc:h2:mem;MODE=MySQL"/>
+    </bean>
+
+    <jdbc:initialize-database data-source="dataSource">
+        <jdbc:script location="classpath:scripts/macula.sql" />
+    </jdbc:initialize-database>
+
+
+</beans>

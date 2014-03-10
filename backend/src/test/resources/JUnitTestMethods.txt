@@ -1,0 +1,2711 @@
+given The Exam Is Scheduled 
+ When The Admin In Activates The Exam 
+it Should Get In Activated
+
+
+
+
+when Plans Purchased Includes First Purchase And Only Add Ons 
+it Should Return A Only The Add Ons
+
+
+
+
+it Should Select Questions Based On A Random Basis Using The Subject Allocation Numbers
+
+
+
+
+given Proposed Exam Starts Exactly When A Scheduled Exam Starts 
+it Should Return Overlap
+
+
+
+
+given A Subscribed Student 
+when A Past Paper Is Taken 
+it Should Verify That Past Seven Years Paper Is Allowed
+
+
+
+
+it Should Calculate The Final Score And Group It By Subjects
+
+
+
+
+given Past Exam Details 
+when Student Is Taking The Past Exam For The First Time 
+it Should Return The Exam Details Without The Performance Summary
+
+
+
+
+given Student Has Read Notifications One Month Back 
+when He Checks His Notifications 
+it Should Show All Answered Student Enquires In The Past Month
+
+
+
+
+given A Real T Ime Exam And Student 
+when A Student Attends The Exam Late 
+it Should Reduce The Time Alloted For The Student Exam
+
+
+
+
+given Collection Of Abusive Words When Enquiry Is ENQUIRE 
+ DOES 
+ NOT 
+ CONTAIN 
+ ABUSIVE 
+ WORD It Should Return False
+
+
+
+
+given Student With No Plans 
+when He Purchases A Full Contents Plan 
+it Should Not Be Treated As A Validity Extension
+
+
+
+
+given Previous Failed Login Attempts 
+it Should Reset Failed Login Attempts 
+ When A Successfull Login Occurs
+
+
+
+
+given A Student With A Composeable Plan 
+when Add On Plans Are Purchased 
+it Should Be Allowed
+
+
+
+
+given Chapter Enquiry Text Faculty Response And Empty List 
+when The Given List Does Not Contain The Chapter 
+it Should Return List By Adding One New Dto With The Given Chapter And The Size Of The Chapter Should Increase To One
+
+
+
+
+given A Student Has Taken A Past Exam 
+ When His Exam Details For The Past Exam Are Needed 
+it Should Prepare The Exam Details From The Previous Attempt
+
+
+
+
+when The Student Has Already Attempted A Mock Exam 
+it Should Find The Mock Exam
+
+
+
+
+it Should Not Return Exam Property Key As No Of Past Test For Subscribed User For Exam Category Past
+
+
+
+
+when The Subject Question Has Been Asked In The Exam 
+it Should Return True
+
+
+
+
+given A Student With Newly Reset Plans History 
+when Subscribed For A Single Basic Plan 
+it Should Return Empty Plan List
+
+
+
+
+given No Real Time Exams Are Created After Student Reads Notifications 
+it Should Return Zero Notifications
+
+
+
+
+given Self Study Metrics Dto And Student Registered Role With Phase First 
+it Should Update The Accessibility To False As Given Role Should Have Fourth Phase
+
+
+
+
+test Compute Of Results Time
+
+
+
+
+given Subject Chapter Enquiry Text Faculty Response And Empty List 
+when The Given List Does Not Contain The Subject 
+it Should Return List By Adding One New Dto With The Given Subject And The Size Of The List Should Increase To One
+
+
+
+
+given Chapter Id Medical Condition And Difficulty Level As ONE 
+it Should Return Reviewed Questions By Medical Condition And Difficulty
+
+
+
+
+given Question Audit With Only Topic Info 
+when Topic Info Is Altered By Specialist 
+it Should Keep The Topic Key For Expert And Specialist
+
+
+
+
+it Should Calculate Time Remaining
+
+
+
+
+given Student Upgrades Plan Event 
+ 
+when Upgrade Is To A Paid Plan 
+it Should Make The Student A Subscribed User
+
+
+
+
+given Student With Composeable Plan 
+when He Tries To Upgrade To Phase Four Plan 
+it Should End The Current Plan And Fire Student Upgrades Plan Event
+
+
+
+
+given A Student Plan List 
+it Should Arrange By Plan Phase
+
+
+
+
+given A Subscribed Student 
+when He Does Purchase Of Only Add Ons 
+it Should Not Change Lead Plan
+
+
+
+
+given A Registered Student 
+when He Purchases A Plan For The First Time 
+it Should Assign Him The Plan With End Date Calculated From Plan Duration And Fire Fire Student Upgrades Plan Event
+
+
+
+
+given Three Mock Exams Have Been Created 
+ When A Mock Exam With New Name Is Created 
+it Should Return False
+
+
+
+
+given Exam Is Scheduled 
+when Exam Starts 
+it Should Change Status To Started
+
+
+
+
+given Student With Multiple Premium Plans 
+it Should Calculate Permitted Enquiries Based On Each Plans Limit
+
+
+
+
+when Plans Purchased Includes Add On 
+it Should Return True
+
+
+
+
+given Student With Standalone Plan 
+when He Upgrades To A Standalone Plan 
+it Should Fire Student Upgrades Plan Event
+
+
+
+
+given Student Id Topic Id And Difficulty Level As ALL 
+it Should Return Reviewed Questions By Topic And With All Difficulty Levels
+
+
+
+
+given Student With One Premium Plan 
+when Plan Is For A In Active Phase 
+it Should Calculate Permitted Self Study Time Using Top Up Study Duration
+
+
+
+
+test Update With Student Past Paper Details
+
+
+
+
+given Question Audit With Only Topic Info 
+when Topic Info Remains Unaltered 
+it Should Remove The Topic Key From Audit Details
+
+
+
+
+given Question Id And Infomercial Banner Type 
+when No Infomercial Keyword Matches With The Question Id Keyword 
+it Should Return The Zero Infomercial
+
+
+
+
+when Subject Wise Score For Last Attempt Is Asked 
+it Should Query Using The Student Exam Id Of The Last Attempt
+
+
+
+
+when The Subject Question Has Not Been Asked In The Exam 
+it Should Return False
+
+
+
+
+it Should Return A List Of All Institutes
+
+
+
+
+given Exam Start Time And Duration 
+it Should Calculate The Exam End Time
+
+
+
+
+given Current Date And Banner Type 
+when Infomercial Display On Date Is Current Date 
+it Should Return The Infomercial Which Has Current Date As The Display On Date
+
+
+
+
+given Student Id And Authority 
+when The Authority Is Expired Student Role 
+it Should Return The Upgradable Plans By Removing The First Entry Of List
+
+
+
+
+given Student Id And Current Date 
+when Other Student Applying The Same Coupon At A Same Time 
+it Should Throw Coupon Cannot Be Applied
+
+
+
+
+given A Registered Student 
+when Subscribed For Entry Level Plan 
+it Should Return Empty Plan List
+
+
+
+
+given A Standalone Plan Type 
+when A Upgrade Occurs To Composeable Plan Type 
+it Should End The Current Plan Immediately
+
+
+
+
+given Student Id And Current Date 
+when Current Date Is After Expiry Date 
+it Should Throw Coupon Cannot Be Applied
+
+
+
+
+given Assigned To Self Study Question Bank And Faculty Response Dto 
+when Subject Specialist Response Succeeded 
+it Should Register Question Comment Responded Event
+
+
+
+
+given Payment Initiated 
+when A Coupon Is Applied 
+it Should Apply Discount On The Payment
+
+
+
+
+given A Student Exam 
+ When Correct Answers For The Questions In The Exam Are Requested 
+it Should Return The Question And Right Answer Combination
+
+
+
+
+given A Registered Student 
+when Subscribed For Multiple Premium Plans 
+it Should Return Currently Bought And Active Premium Plans
+
+
+
+
+When A Exam Completes 
+it Should Be Marked As Completed
+
+
+
+
+given Admin Role Authority 
+it Should Return The List Of All Admin Notifications
+
+
+
+
+when Bulk Import Type Is Question Bank 
+it Should Import Questions And Not Invoke Any Other Import Method
+
+
+
+
+when Current Performance Is Better Than Past Performance 
+it Should Give Positive Performance Index
+
+
+
+
+given Exam Is Completed 
+when Exam Results Are Computed 
+it Should Change Status To Results Computed
+
+
+
+
+given A Student With Reset Plans History And An Entry Level Plan Subscription 
+it Should Return The Upgraded From Entry Level Plan
+
+
+
+
+given Metrics For Attempted Questions And Total Question Metrics For All Questions 
+when Attempted Questions Needs To Be Updated With Total Question Metrics 
+it Should Keep Other Metrics Un Affected All The Self Study Units
+
+
+
+
+given A Standalone Plan Type 
+when A Upgrade Occurs To Another Standalone Plan Type 
+it Should Return True
+
+
+
+
+given An Entry Level Plan Subscribed Student 
+when Upgraded To Next Entry Level Plan 
+it Should Return Currently Upgraded To Entry Level Plan
+
+
+
+
+given Student With Full Contents Plan 
+when Extension Plan Is Purchased 
+it Should Allow Validity Extension
+
+
+
+
+given Subject Chapter Personal Notes And List Of Student Dashboard Dto 
+when The Given List Contain The Subject But Not Chapter 
+it Should Return List By Adding One New Chapter Dto For Subject
+
+
+
+
+given A Student With One Expired Plan And One Plan Reset By Admin 
+when Student Subscribes For A New Single Premium Plan 
+it Should Treat Purchase As Initial Purchase For Notification Purposes
+
+
+
+
+given A Multi User Coupon 
+ When It Is Applied 
+it Should Throw A Illegal State Exception
+
+
+
+
+given A Registered User 
+when A Trail Plan Is Assigned 
+it Should Assign Trail Plan To Student
+
+
+
+
+when Student Exam Completes 
+it Should Compute Performance Review Summary
+
+
+
+
+given A Subscribed Student 
+when He Does Purchase Of Upgrade And Add Ons 
+it Should Upgrade His Current Plan And Then Assign Add Ons
+
+
+
+
+when Bulk Import Type Is Coupon 
+it Should Import Coupon And Not Invoke Any Other Import Method
+
+
+
+
+given Chapter Id Medical Condition And Difficulty Level As ALL 
+it Should Return Reviewed Questions By Medical And With All Difficulty Levels
+
+
+
+
+it Should Return Exam Property Key As No Of Mock Exam For Subscribed User For Exam Category Mock
+
+
+
+
+given Registered Student In Graduate Phase 
+when He Wants To Take Real Time Exam 
+it Should Not Be Allowed
+
+
+
+
+given A Composeable Plan Type 
+when A Upgrade Occurs To Another Composeable Plan Type 
+it Should End The Current Plan On The End Date Of The Upgraded Plan
+
+
+
+
+when Bulk Import Type Is Entrance Exam 
+it Should Import Entrance Exams And Not Invoke Any Other Import Method
+
+
+
+
+given Coupon Created For A Particular User 
+when Some Other User Is Applying The Same Coupon 
+it Should Throw Coupon Cannot Be Applied
+
+
+
+
+given A Student With Newly Reset Plans History 
+when Subscribed For Entry Level Plan 
+it Should Return Currently Bought And Active Entry Level Plan
+
+
+
+
+When A Exam Results Are Computed With Negative Marking 
+it Should Derive Performance Summary After Subtracting The Negative Scores
+
+
+
+
+given Faculty Type As Specialist 
+when The Question Been Rejected And Status Is Assigned To SE 
+it Should Return Attempt Number As FIRST
+
+
+
+
+given The Correct Answer Sheet 
+ When Student Answers All Questions Wrongly 
+it Should Compute The Total Marks As Zero
+
+
+
+
+given User Login With Unlimited Validity 
+when Validity Is Checked 
+it Should Return True
+
+
+
+
+given A Student With Newly Reset Plans History 
+when Subscribed For Multiple Premium Plans 
+it Should Return Empty Plan List
+
+
+
+
+given A Question 
+when The Given Question Is Got Rejected Once 
+it Should Return Attempt Number As SECOND
+
+
+
+
+given A Registered Student 
+when He Does Purchase Of Upgrade And Add Ons 
+it Should Purchase First Plan And Then Assign Add Ons
+
+
+
+
+given A Question 
+when The Given Question Is Not Rejected 
+it Should Return Attempt Number As FIRST
+
+
+
+
+given Self Study Session With Start Time 
+when Session Ends 
+it Should Calculate Session Duration
+
+
+
+
+given Past Exam Student Exam Id 
+when Exam Completed 
+it Should Return Scoring Details Of Entrance Exam
+
+
+
+
+given Student Purchased Multiple Composeable Plans Ending On Same Day 
+when Lead Plan Is Elected 
+it Should Choose Plan With Highest Phase
+
+
+
+
+given Infomercial Parameter 
+it Should Return The List Of Infomercial Banner Type
+
+
+
+
+given A Subscribed Student 
+when Upgraded To A New Plan 
+it Should Frame A Map And Call Mail Service
+
+
+
+
+Given Collection Of Authorities When It Contains Senior Faculty Role It Should Return False For Junior Faculty
+
+
+
+
+given A Coupon Code 
+when Given Coupon Code Matches With The Existing Coupon Code 
+it Should Return True
+
+
+
+
+given Metrics For Attempted Questions And All Questions With Total Metrics 
+when Attempted Questions Needs To Be Updated With Total Question Metrics 
+it Should Update The Total Questions Metric For All The Self Study Units
+
+
+
+
+given A Registered Student 
+it Should Not Allow Any Mock Exams
+
+
+
+
+given Exam Is Scheduled 
+when Exam Cancelled 
+it Should Change Status To Cancelled
+
+
+
+
+given A Template Exam And Student 
+when A Mock Test Is Prepared 
+it Should Be Prepared Based On The Template Exam And Phase Of The Student
+
+
+
+
+given Exam Is Active 
+when Exam Is Scheduled 
+it Should Change Status To Scheduled
+
+
+
+
+given A Student With Full Contents Plan 
+when A Validity Extension Plan Is Purchased 
+it Should Start Extension Plan Only After End Of Current Plan
+
+
+
+
+given Student Plan 
+when It Does Not Expire In The Next Seven Days 
+it Should Return False
+
+
+
+
+it Should Return No Of Attempts Taken By Student For Every Mock Exam
+
+
+
+
+given A List Of Faculties It Should Find All Un Verified Faculties And Check All Should Have Verified Flag As False
+
+
+
+
+given A Student Exam Is Completed 
+it Should Compute Subject Based Scores
+
+
+
+
+when Bulk Import Type Is Institutes 
+it Should Import Institutes And Not Invoke Any Other Import Method
+
+
+
+
+given A Premium Plan Subscribed Student 
+when Upgraded To Another Premium Plan 
+it Should Return Currently Upgraded To And Active Premium Plan
+
+
+
+
+given A Student With Full Contents Plan 
+when A Validity Extension Plan Is Purchased 
+it Should Calculate End Date Based On End Date Of Current Plan
+
+
+
+
+given Exam Of 60 Minutes 
+when Student Is 10 Minutes Late 
+it Should Allow Student To Take Exam For 50 Minutes
+
+
+
+
+given A Premium Plan Subscribed Student 
+when Upgraded To Another Premium Plan 
+it Should Return The Upgraded From Premium Plan
+
+
+
+
+given Student With Composeable Plan 
+when He Upgrades To Composeable Plan 
+it Should Change Current Plan End Date Based On Upgraded Plan End Date
+
+
+
+
+given A Registered Student 
+when A Past Paper Is Taken 
+it Should Verify That Past One Year Paper Is Allowed
+
+
+
+
+given Topic Id And Difficulty Level As ONE 
+it Should Return Reviewed Questions By Topic And Difficulty
+
+
+
+
+given A Registered Student 
+it Should Allow One For Past Exam
+
+
+
+
+given Student Purchased Multiple Full Content Plans 
+when Lead Plan Is Elected 
+it Should Choose Plan With Latest Purchase Date
+
+
+
+
+when User Is Disabled 
+it Should
+
+
+
+
+given Multiple Composeable Plans Are Purchased 
+when Phase One Two And Three Plans Are Purchased 
+it Should Calculate The Discounted Rate
+
+
+
+
+given Infomercial Banner Type And Current Date 
+when There Is No Infomercial Created With Given Display On Date 
+it Should Check For Infomercial With Keyword And Return The Infomercial
+
+
+
+
+when Plan Purchased Includes Only Upgrade 
+it Should Return False
+
+
+
+
+given A Question Pool 
+when Pool Has Questions For A Given Subject 
+it Should Filter All Questions For A Given Subject
+
+
+
+
+given A Student With Plans 
+when Admin Extend Plan End Date 
+it Should Frame A Map And Call Mail Service
+
+
+
+
+given Topic Id And Difficulty Level As ALL 
+it Should Return Reviewed Questions By Topic And With All Difficulty Levels
+
+
+
+
+given Student Exam Id 
+when User Re Attempts Mock Exam 
+it Should Return Not Null Template Exam Id
+
+
+
+
+given A List Of Composeable Plans 
+it Should Identity The Lead Plan
+
+
+
+
+given A Student Buying Phase Three Alone 
+it Should Return Normal Price For Phase Three
+
+
+
+
+it Should Return List Of Years From The Rewinded Date To Starting Date
+
+
+
+
+given The Number Of Answers And Marks Per Answer 
+it Should Calculate The Total Marks
+
+
+
+
+given Subject Chapter Personal Notes And List Of Student Dashboard Dto 
+when The Given List Contain The Subject Chapter But Not Personal Note 
+it Should Return List By Adding One New List Of Personal Note
+
+
+
+
+it Should Prorate The Test Duration Based On The Number Of Questions In The Student Exam
+
+
+
+
+test Is Phase Not Active
+
+
+
+
+given A Student 
+when Purchased Multiple Plans 
+it Should Frame A Map And Call Mail Service
+
+
+
+
+given Exam Is Started 
+it Should Not Get Cancelled
+
+
+
+
+given Subject Chapter Enquiry Text Faculty Response And Empty List 
+when The Given List Contain The Subject 
+it Should Return List By Adding The Chapter And Personal Note To Subject And The Size Of The List Should Be Same
+
+
+
+
+given A Question Pool 
+when Pool Zero Questions For A Given Subject 
+it Should Return A Empty List
+
+
+
+
+given A Subscribed User 
+ When Property Key For Exam Category All Is Requested 
+it Should Return A Empty String
+
+
+
+
+when Bulk Import Type Is A Invalid String 
+it Should Not Import Any Data And Return False
+
+
+
+
+given Payment Initiated 
+when A Coupon Is Applied 
+it Should Raise Coupon Redeemed Event
+
+
+
+
+given A Initiated Payment 
+when Payment Succeeds 
+it Should Raise A Payment Succeeds Event
+
+
+
+
+it Should Be Marked Not Allowed For Registered User And Exam Is Only Subscribed Users
+
+
+
+
+given Current Date And Infomercial Banner Type 
+when There Is No Infomercial For A Given Banner Type 
+it Should Return The Zero Infomercial
+
+
+
+
+given Proposed Exam Starts Exactly When A Scheduled Exam Ends 
+it Should Return Overlap
+
+
+
+
+given Proposed Exam Starts During A Scheduled Exam 
+it Should Return Overlap
+
+
+
+
+given A Student Buying Phase Two Alone 
+it Should Return Normal Price For Phase Two
+
+
+
+
+given Exam Id 
+when The Method For Complete Exam Trigger Called 
+it Should Return Trigger For Complete Exam
+
+
+
+
+given Multiple Composeable Plans Are Purchased 
+when Phase One Plan Is Purchased With Phase Three Plan 
+it Should Calculate The Discounted Rate
+
+
+
+
+when Now Is Out Of Notification Window 
+it Should Return False
+
+
+
+
+given Faculty Type As Expert 
+when The Question Been Rejected And Status Is Assigned To SS 
+it Should Return Attempt Number As SECOND
+
+
+
+
+given A Entry Level Student Plan 
+when Its Lead Phase Does Not Expires In The Next Seven Days 
+it Should Return False
+
+
+
+
+given A Student Has Never Attempted A Past Exam 
+ When His Exam Details For The Past Exam Are Needed 
+it Should Not Fetch Any Exam Details
+
+
+
+
+given Student With Standalone Plan 
+when He Upgrades To Another Standalone Plan 
+it Should End The Current Plan
+
+
+
+
+given The Exam Is Active 
+ When The Admin In Activates The Exam 
+it Should Get In Activated
+
+
+
+
+given Student With Composeable Plan 
+when Extension Plan Is Purchased 
+it Should Not Allow Validity Extension
+
+
+
+
+given A Student With Reset Plans History And A Basic Plan Subscription 
+when Upgraded To Next Basic Plan 
+it Should Return Currently Upgraded To And Active Basic Plan
+
+
+
+
+given A Student Has Purchased Two Plans 
+when The Phase Of Student Is Requested 
+it Should Return Both Phases
+
+
+
+
+given Multiple Composeable Plans Are Purchased 
+when Phase One Plan Is Purchased With Phase Two Plan 
+it Should Calculate The Discounted Rate
+
+
+
+
+Given Collection Of Authorities When It Contains Student Registered Role It Should Return True For Registered Student Role
+
+
+
+
+given Faculty Type As Expert 
+when The Question Not Been Rejected And Status Is Assigned To SS 
+it Should Return Attempt Number As FIRST
+
+
+
+
+given A String 
+when Split Based On The Delimiter 
+it Should Return A Map With Key Value Pair
+
+
+
+
+test Bulk Import Service 
+ Import Questions
+
+
+
+
+given Student With Trail Plan 
+when He Upgrades To A Composeable Term Plan 
+it Should Fire Student Upgrades Plan Event
+
+
+
+
+it Should Return Top Score For Template Exam Id
+
+
+
+
+when Now Is Start Date Of Notification Window 
+it Should Return True
+
+
+
+
+given Coupon Code And Student Id 
+when Coupon Is Invalid 
+it Should Throw Coupon Cannot Be Applied Exception
+
+
+
+
+When A Exam Completes 
+it Should Be Attached With A Answer Sheet
+
+
+
+
+test Create Answer Sheet
+
+
+
+
+given Proposed Exam Ends Before The Scheduled Exams 
+it Should Return No Overlap
+
+
+
+
+test Bulk Import Service 
+ Import Institutes
+
+
+
+
+given Faculty Registration Dto 
+when Is Free Lancer Set To False 
+it Should Make The Faculty Enabled
+
+
+
+
+given Faculty And Answered Enquiry Details 
+when Faculty Given The Right Answer For Enquiry 
+it Should Prepare A Mail Service For An Option With Correct Answer
+
+
+
+
+given A Student With Newly Reset Plans History 
+when Subscribed For A Trial Plan 
+it Should Return Currently Bought And Active Trial Plan
+
+
+
+
+given List Of Question Comment Response Dto And List Of Question Comment 
+when Response Comment Got Updated 
+it Should Question Comments Text Updated As TRUE
+
+
+
+
+when Current Date Is Before Validity Expiration 
+it Should Return True
+
+
+
+
+it Should Increment Failed Login Count 
+ When Login Attempt Failed
+
+
+
+
+when Plan Is Inactivated By Force 
+it Should End Immediately
+
+
+
+
+given A Student Buying Phase Two 
+when He Is Buying Phase Two Along With Phase One Multi Package 
+it Should Return Normal Price For Phase Two And Discounted Price For Phase One
+
+
+
+
+it Should Mark Multiple The Past Exams Which Can Be Taken As True
+
+
+
+
+given Student With Trail Plan 
+when He Upgrades To A Composeable Term Plan 
+it Should End The Trail Plan
+
+
+
+
+given Student With Standalone Plan 
+when He Upgrades To A Composeable Plan 
+it Should End The Current Plan And Fire Student Upgrades Plan Event
+
+
+
+
+given A Student Has One Attempt 
+when We Check If Student Has At Least Two Attempt 
+it Should Return True
+
+
+
+
+Given Collection Of Authorities When It Contains Student Subscription Role It Should Return True For Subscribed Student Role
+
+
+
+
+given A Student With Entry Plan 
+when Upgraded To Next Entry Plans 
+it Should Frame A Map And Call Mail Service
+
+
+
+
+given All Question From A Subject And The Index Positions Of The Questions To Be Selected 
+it Should Give A List Of The Questions
+
+
+
+
+given Student With Trail Plan 
+when He Upgrades To A Standalone Plan 
+it Should Fire Student Upgrades Plan Event
+
+
+
+
+given Lead Plan And Lead Plan Phase From Current Purchase 
+when Lead Plan And Lead Plan Phase From Current Purchase Is Lesser Than The Student Current Plan 
+it Should Return False
+
+
+
+
+given Student Purchased Multiple Composeable Plans 
+when Lead Plan Is Elected 
+it Should Choose Plan With Highest Phase
+
+
+
+
+given Two Attempts 
+test Get Template Exam Ids
+
+
+
+
+given All The Correct Answer 
+it Should Calculate The Total Number Of In Correct Answers
+
+
+
+
+Given Collection Of Authorities When It Contains Admin Role It Should Return True For Admin
+
+
+
+
+given A Subscribed Student 
+when He Does Purchase Of Only Add Ons 
+it Should Assign Add Ons
+
+
+
+
+given A Three Real Time Exams Are Created After User Reads Notifications 
+when Notification Is Created 
+it Should Have Count Of Three
+
+
+
+
+test Prorate Marks
+
+
+
+
+given Th Expiry Date Is In The Future 
+it Should Return Coupon Status As Expired
+
+
+
+
+given Difficulty Level Metric Name And Value 
+it Should Update The Metric Value To The Given Difficulty Level
+
+
+
+
+when Payment Initiated For Multiple Plans 
+it Should Calculate Total Payment Amount
+
+
+
+
+given A Registered Student 
+when Subscribed For A Single Basic Plan 
+it Should Return Currently Bought And Active Basic Plan
+
+
+
+
+test Get Unique Set Of Subject Codes
+
+
+
+
+given Student With Multiple Premium Plans 
+when Lead Plan Is For In Active Phase 
+it Should Calculate Permitted Self Study Time Using Top Up Study Duration Of All Active Plans
+
+
+
+
+given A Student With Newly Reset Plans History 
+when Subscribed For A Single Basic Plan 
+it Should Return Currently Bought And Active Basic Plan
+
+
+
+
+given A Subscribed Student 
+when He Does Purchase Of Upgrade Only 
+it Should Upgrade His Current Plan
+
+
+
+
+given Student With Entry Level Plan 
+when Admin Does A Upgrade 
+it Should Upgrade The Entry Level Plan To Next Entry Level Plan
+
+
+
+
+given Student Has Never Read Notifications 
+it Should Return Count Of All Answered Student Enquires
+
+
+
+
+when Plans Purchased Includes Only Add Ons 
+it Should Return All The Add Ons
+
+
+
+
+given A Student Has Never Attempted A Exam 
+when We Check If D Student Has At Least One Attempt 
+it Should Return False
+
+
+
+
+when The Student Has Never Taken The Mock Exam 
+it Should Prepare A New Mock Exam
+
+
+
+
+given The Coupon For Multiple User 
+when The Coupon Status Is Active 
+it Should Return True
+
+
+
+
+given Student With Composeable Plan 
+when He Tries To Purchase Additional Composeable Plan From Higher Phase 
+it Should Not Be Allowed
+
+
+
+
+it Should Be Marked Allowed For Registered User And Exam Is Also For Registered Users
+
+
+
+
+given Student With Standalone Plan 
+when He Upgrades To A Standalone Plan 
+it Should Assign New Stand Alone Plan To Student
+
+
+
+
+given Exam Of 60 Minutes 
+when Student Is On Time For The Exam 
+it Should Allow Student To Take Exam For 60 Minutes
+
+
+
+
+given Student Plan 
+when It Expires In The Next Seven Days 
+it Should Return True
+
+
+
+
+given List Of Self Study Metrics Dto Phase List And Authorities 
+it Should Update Accessibility Based On Student Plan Phases
+
+
+
+
+test Bulk Import Service 
+ Import Entrance Exam
+
+
+
+
+given A Student 
+when Newly Purchase Single Plans 
+it Should Call The Single Plan Notification Method
+
+
+
+
+when Plans Purchased Includes Upgrade And Only Add Ons 
+it Should Return A Only The Add Ons
+
+
+
+
+when Current Performance Is Same As Past Performance 
+it Should Give Zero Performance Index
+
+
+
+
+when Student Gives Five Correct Answers 
+it Should Return Total Correct Answers As Five
+
+
+
+
+given Exam Is Started 
+when Exam Completes 
+it Should Change Status To Completed
+
+
+
+
+given Admin Role Authority 
+it Should Return The List Of All Medical Admin Notifications
+
+
+
+
+given Subscribed Student Not In Graduate Phase 
+when He Wants To Take Real Time Exam 
+it Should Not Be Allowed
+
+
+
+
+it Should Return The Students Who Are Eligible For Real Time Exam
+
+
+
+
+given A Registered Student 
+when Subscribed For A Single Basic Plan 
+it Should Return Empty Plan List
+
+
+
+
+given A Student Has One Attempt 
+when We Check If D Student Has At Least One Attempt 
+it Should Return True
+
+
+
+
+given Partially Completed Student Exam 
+ When Student Exam Is Completed 
+it Should Add New Answers To Existing Answer Sheet
+
+
+
+
+when The Student Has Never Taken The Mock Exam 
+it Should Not Find The Mock Exam
+
+
+
+
+given A Student With Reset Plans History And A Basic Plan Subscription 
+when Upgraded To Next Basic Plan 
+it Should Return The Upgraded From Basic Plan
+
+
+
+
+test Total Marks For In Correct Answers
+
+
+
+
+it Should Transform To Hour And Return Same Map
+
+
+
+
+given A Composeable Plan Type 
+when A Upgrade Occurs To Standalone Plan Type 
+it Should Return False
+
+
+
+
+given A Student Has Taken A Past Exam Two Times 
+ When His Exam Details For The Past Exam Are Needed 
+it Should Fetch The Details Of The Most Recent Attempt
+
+
+
+
+given Current Date 
+when Plan Phase Is Before The Current Date 
+it Should Return False
+
+
+
+
+given Chapter Personal Notes And List Of Personal Note By Chapter 
+when The Given List Contain The Chapter But Not Personal Note 
+it Should Return List By Adding One New Personal Note For Given Chapter
+
+
+
+
+test Student Performs Plan Upgrade
+
+
+
+
+given Student Id 
+it Should Return All Entrance Exams For That Id And Other Exams Which Are Not There For The Given Id
+
+
+
+
+given A Registered Student 
+when A Past Paper Is Taken 
+it Should Verify That Papers Prior To Last Year Are Not Allowed
+
+
+
+
+given A Student Buying Phase Three 
+when He Is Buying Phase Three Along With Phase Two Multi Package 
+it Should Return Normal Price For Phase Three And Discounted Price For Phase One
+
+
+
+
+given A Registered Student 
+when Subscribed For A Trial Plan 
+it Should Return Empty Plan List
+
+
+
+
+given A Student 
+when Purchased A Plan 
+it Should Frame A Map And Call Mail Service
+
+
+
+
+given Registered Student Authority 
+it Should Return Expired Plan Notification
+
+
+
+
+Given Collection Of Authorities When It Contains Senior Faculty Role It Should Return True For Senior Faculty
+
+
+
+
+Given Collection Of Authorities When It Contains Junior Faculty Role It Should Return True For Junior Faculty
+
+
+
+
+given Three Mock Exams Have Been Created 
+ When A Mock Exam With The Same Name Is Created Again 
+it Should Return True
+
+
+
+
+given Student Id Chapter Id Medical Condition And Difficulty Level As ALL 
+it Should Return Reviewed Questions By Medical And With All Difficulty Levels
+
+
+
+
+given Student Purchased Compose Plan And Multiple Full Content Plans On Different Days 
+when Lead Plan Is Elected 
+it Should Choose Plan With Latest Purchase Date
+
+
+
+
+given Assigned To Subject Specialist On And Faculty Response Dto 
+when Subject Expert Response Succeeded 
+it Should Register Question Comment Responded Event
+
+
+
+
+given Student With Multiple Premium Plans 
+when Lead Plan Is For Active Phase 
+it Should Calculate Permitted Self Study Time Using Lead Plans Phased Based Study Duration And Add On Plans Top Up Study Duration
+
+
+
+
+it Should Return The Prepared Data To Inert Into Institute Table
+
+
+
+
+given Lead Plan And Lead Plan Phase From Current Purchase 
+when Lead Plan And Lead Plan Phase From Current Purchase Is Greater Than The Student Current Plan 
+it Should Return True
+
+
+
+
+given A Active Coupon 
+when It Is Applied 
+it Should Become Locked
+
+
+
+
+when Current Performance Is Poorer Than Past Performance 
+it Should Give Negative Performance Index
+
+
+
+
+given A Registered Student 
+when He Does Purchase Of First Plan Only 
+it Should Assign First Plan
+
+
+
+
+it Should Fetch Questions Only For The Mentioned Years
+
+
+
+
+it Should Prepare A Student Past Paper Exam And Prorate Questions Based On Student Phase
+
+
+
+
+given A Registered Student 
+when Subscribed For Multiple Basic Plans 
+it Should Return Currently Bought And Active Basic Plans
+
+
+
+
+given Student With Trail Plan 
+when He Upgrades To A Standalone Plan 
+it Should Assign A New Plan To The Student
+
+
+
+
+Given Collection Of Authorities When It Contains Junior Faculty Role It Should Return False For Senior Faculty
+
+
+
+
+given A Real T Ime Exam And Student 
+when A Student Attends The Exam On T Ime 
+it Should Allow Full Exam Duration To The Student
+
+
+
+
+given At Entry Level Plan 
+when Admin Attempts Upgrades Outside Upgrade Window 
+it Should Throw Exceptino
+
+
+
+
+given A Student Has Never Attempted A Exam 
+when We Check If Student Has At Least Two Attempt 
+it Should Return False
+
+
+
+
+given Infomercial Banner Type And Current Date 
+when There Is No Infomercial With Current Display On Date And Keyword 
+it Should Return The Default Infomercial For A Given Banner Type
+
+
+
+
+it Should Return Exam Property Key As No Of Past Test For Registered User For Exam Category Past
+
+
+
+
+given Student With Trail Plan 
+when He Upgrades To A Standalone Plan 
+it Should End The Current Plan
+
+
+
+
+given A Registered Student 
+when Subscribed For Entry Level Plan 
+it Should Return Currently Bought And Active Entry Level Plan
+
+
+
+
+given A Student With Reset Plans History And An Entry Level Plan Subscription 
+when Upgraded To Next Entry Level Plan 
+it Should Return Currently Upgraded To Entry Level Plan
+
+
+
+
+when Now Is Within Plan Expiration Notification Window 
+it Should Include Plan Name Within Notification Message
+
+
+
+
+given A Subscribed User 
+it Should Allow Four For Mock Exam
+
+
+
+
+test Add Phase Based Scores
+
+
+
+
+given Faculty Answered Enquiry Details 
+when Faculty Given The Right Answer For Enquiry 
+it Should Prepare A Mail Service For An Option With Correct Answer
+
+
+
+
+given Subscribed Student In Graduate Phase 
+when He Wants To Take Real Time Exam 
+it Should Be Allowed
+
+
+
+
+test Transform To Default Date Time Format
+
+
+
+
+test Student Performs First Purchase
+
+
+
+
+given A Registered Student 
+when Subscribed For Multiple Basic Plans 
+it Should Return Empty Plan List
+
+
+
+
+when User Is Enabled 
+it Should Reset Account To Behave Like A Newly Created User Login
+
+
+
+
+given Question Audit With Comment Info 
+when Question Details Are Pruned 
+it Should Ignore Question Comment Audit
+
+
+
+
+test Bulk Import Service 
+ Import Coupon
+
+
+
+
+given Question Id And Infomercial Banner Type 
+when Infomercial Keyword Matches With The Question Id Keyword 
+it Should Return The Infomercial Which Has The Highest Similar Keyword Matches With The Question Keyword
+
+
+
+
+given A Basic Plan Subscribed Student 
+when Upgraded To Next Basic Plan 
+it Should Return Currently Upgraded To And Active Basic Plan
+
+
+
+
+Given Collection Of Authorities When It Contains Student Registered Role It Should Return False For Subscribed Student Role
+
+
+
+
+it Should Return Map For Mail Service
+
+
+
+
+given A Registered Student 
+when He Purchases A Trail Plan 
+it Should Use The Student Phase For The Purchased Plan
+
+
+
+
+given Student Id 
+it Should Return The Phase Based Self Study Metrics
+
+
+
+
+Given Collection Of Authorities When It Contains Student Subscription Role It Should Return False For Registered Student Role
+
+
+
+
+given A List Of Faculties It Should Find All Verified Faculties And Check All Should Have Verified Flag As True
+
+
+
+
+given Infomercial Banner Type And Current Date 
+when Infomercial Created With Given Display On Date 
+it Should Return The Infomercial
+
+
+
+
+when Student Does Not Attempt All Questions 
+it Should Calculate The Number Of Questions Not Attempted By The Student
+
+
+
+
+it Should Return Improvement Index And Student Exam Id For Mock Id Two
+
+
+
+
+it Should Return The Prepared Data To Inert Into Questions Table
+
+
+
+
+given The Exam Is Not Active Or Scheduled 
+ When The Admin In Activates The Exam 
+it Should Throw A Exception
+
+
+
+
+given Proposed Exam Starts After The Scheduled Exams 
+it Should Return No Overlap
+
+
+
+
+given Coupon Code And Student Id 
+when Coupon Is Applied 
+it Should Return The Coupon Status Locked
+
+
+
+
+it Should Prorate The Duration Of The Test Based On The Number Of Questions In The Test
+
+
+
+
+given Subject Chapter Personal Notes And Empty List 
+when The Given List Does Not Contain The Subject 
+it Should Return List By Adding One New Dto For The Given Subject
+
+
+
+
+given A Student With Newly Reset Plans History 
+when Subscribed For A Single Premium Plan 
+it Should Return Currently Bought And Active Premium Plan
+
+
+
+
+given The Size Of The Question Pool And Number Of Questions To Select 
+it Should Create A Set With The Index Positions Of The Questions To Select
+
+
+
+
+given A Registered Student 
+when Subscribed For Multiple Premium Plans 
+it Should Return Empty Plan List
+
+
+
+
+given A Student Subscribed For A Plan 
+when Upgrade To Another Plan 
+it Should Call The Plan Upgrade Notification Method
+
+
+
+
+given Self Study Metrics And Time Needed For Given Unit Of Self Study 
+when Self Study Metrics Has Unit Of Study 
+it Should Set The Required Time For The Given Self Study Unit
+
+
+
+
+it Should Prepare A Student Past Paper Exam And Prorate Duration Based On Student Phase
+
+
+
+
+given Chapter Enquiry Text Faculty Response And Empty List 
+when The Given List Contain The Chapter 
+it Should Return List By Add Enquiry And Faculty Response To The Given Chapter And The Size Of The Chapter List Should Be Same
+
+
+
+
+given A Registered Student 
+whensubscribed For A Trial Plan 
+it Should Frame A Map And Call Mail Service
+
+
+
+
+test Generate Billing Cycle 1
+
+
+
+
+given A Question Bank 
+ When Past Paper For A Year And Entrance Exam Code Are Requested 
+it Should Pick Questions Only For That Combination
+
+
+
+
+it Should Mark The Past Exams Which Can Be Taken As True
+
+
+
+
+given Student With Standalone Plan 
+when He Upgrades To A Phase Four Plan 
+it Should End The Current Plan And Fire Student Upgrades Plan Event
+
+
+
+
+given A Initiated Payment 
+when Payment Fails 
+it Should Raise A Payment Failure Event
+
+
+
+
+given Subscribed Student Authority 
+it Should Return List Of All Subscribed User Notification
+
+
+
+
+given List Of Self Study Metrics Dto And No Of Accessible Self Study Units 
+it Should Update Accessibility Based On Number Of Units Accessible
+
+
+
+
+given A Student Has Purchased Full Contents Plan 
+when The Phase Of Student Is Requested 
+it Should Return All The Phases
+
+
+
+
+given Question Audit With Only Topic Info 
+when Activator Audit Changes Are Not Present 
+it Should Prune Only Expert And Specialist Changes
+
+
+
+
+given A Composeable Plan Type 
+when A Upgrade Occurs To Full Contents Plan Type 
+it Should End The Current Plan Immedetely
+
+
+
+
+given A Registered Student 
+when Subscribed For A Single Premium Plan 
+it Should Return Empty Plan List
+
+
+
+
+given Phase 
+it Should Return Total Number Of Question For A Given Phase
+
+
+
+
+test Bulk Import Service 
+ Import Question Keywords
+
+
+
+
+given A Student Exam Is Completed 
+it Should Compute Phase Based Scores
+
+
+
+
+given Coupon Code And Student Id 
+when Coupon Is Expired 
+it Should Throw Coupon Cannot Be Applied Exception
+
+
+
+
+given A Student Has More Than One Attempt 
+when We Check If D Student Has At Least One Attempt 
+it Should Return True
+
+
+
+
+given A Student With A Composeable Plan 
+when Add On Plans Are Purchased 
+it Should Fail If Any Add On Plan Has Phase Greater Than That Of The Lead Plan
+
+
+
+
+given A Coupon Code 
+when Given Coupon Code Does Not Matches With The Existing Coupon Code 
+it Should Return False
+
+
+
+
+given Chapter And Self Study Unit Id 
+it Should Return Total Number Of Question For A Given Chapter
+
+
+
+
+given A Student With Reset Plans History And A Premium Plan Subscription 
+when Upgraded To Another Premium Plan 
+it Should Return Currently Upgraded To And Active Premium Plan
+
+
+
+
+given A Student Has Never Attempted A Past Exam 
+ When His Exam Details For The Past Exam Are Needed 
+it Should Prepare The Exam Details Using The Question Bank
+
+
+
+
+given Faculty Registration Dto 
+when Is Free Lancer Set To True 
+it Should Make The Enabled Faculty Free Lancer
+
+
+
+
+given Student Exam Id 
+when Exam Completed 
+it Should Return Scoring Details Of Entrance Exam
+
+
+
+
+when Student Purchases Full Contents 
+it Should Include All Questions For A Graduate Student
+
+
+
+
+given User Login With No Domain Role 
+when The Domain Role Is Queries 
+it Should Return Empty
+
+
+
+
+given One Attempt 
+test Get Template Exam Ids
+
+
+
+
+given Student Id And Subject Code 
+it Should Return The Chapter Based Self Study Metrics
+
+
+
+
+given Lead Plan And Lead Plan Phase From Current Purchase 
+when There Is A Student With Trial Plan 
+it Should Return True
+
+
+
+
+check Validity Of Sql Queries
+
+
+
+
+given Student Id Chapter Id Medical Condition And Difficulty Level As ONE 
+it Should Return Reviewed Questions By Medical Condition And Difficulty
+
+
+
+
+given Faculty Position As Senior Faculty And Question Status 
+it Should Return List Of Question Comment Details Of All Faculties For A Given Faculty Position
+
+
+
+
+given A Student With Newly Reset Plans History 
+when Subscribed For A Trial Plan 
+it Should Return Empty Plan List
+
+
+
+
+given A Registered Student 
+when Subscribed For A Single Premium Plan 
+it Should Return Currently Bought And Active Premium Plan
+
+
+
+
+given Student Id And Authority 
+when The Authority Is Registration Role 
+it Should Return The Upgradable Plans By Removing The First Entry Of List
+
+
+
+
+given A Trail Plan Type 
+when A Upgrade Occurs To Composeable Or Standalone Plan Type 
+it Should Return True
+
+
+
+
+it Should Lock User Login 
+ When Failed Login Attempts Exceed Maximum Failed Login Attempts Allowed
+
+
+
+
+given Student With Composeable Plan 
+when Student Purchases Additional Composeable Plans 
+it Should Update Plan End Date Of Additional Plans With Plan End Date Of The Lead Plan
+
+
+
+
+given Senior Faculty Role Authority 
+it Should Return List Of All Senior Faculty Notifications
+
+
+
+
+test Generate Billing Cycle
+
+
+
+
+given A Student Has More Than Two Attempt 
+when We Check If Student Has At Least Two Attempts 
+it Should Return True
+
+
+
+
+given List Of Question Comment Response Dto And Question Comment 
+when Question Comment And Response Comment Choices Are Same It Should Enrich The Faculty Response Else It Should Add New Faculty Comment 
+should Return The List Of Question Comment
+
+
+
+
+given Student With One Premium Plan 
+when Plan Is For The Active Phase 
+it Should Calculate Permitted Self Study Time Using Phased Based Study Duration
+
+
+
+
+given A Composeable Plan Type 
+when A Upgrade Occurs To Another Composeable Plan Type 
+it Should Return True
+
+
+
+
+given Student With Single 
+when Lead Plan Is Elected 
+it Should Choose The Single Plan As Lead Plan
+
+
+
+
+given Exam Id 
+when The Method For Compute Result Trigger Called 
+it Should Return Trigger For Compute Result
+
+
+
+
+given Two Rows Of Phase Scores 
+it Should Create A Phase To Score Of Last Two Attempts Map
+
+
+
+
+when Now Is Within Plan Expiration Notification Window 
+it Should Return Notification With Count One
+
+
+
+
+given Self Study Metrics Dto And Student Subscribed Role 
+it Should Update Accessibility Based On Student Plan Phases
+
+
+
+
+when Subject Wise Score For Penultimate Attempt Is Asked 
+it Should Query Using The Student Exam Id Of The Penultimate Attempt
+
+
+
+
+given The Coupon Not For For Multiple User 
+when The Coupon Status Is Locked 
+it Should Return False
+
+
+
+
+when The Number Of Active Mock Exams For A Entrance Exam Code Exceeds The Allowable Limit 
+it Should Return False
+
+
+
+
+given A Initiated Payment 
+when Payment Succeeds 
+it Should Update The External Reference Id
+
+
+
+
+test Assign Login To Student
+
+
+
+
+given A Exam Has Questions From Three Subjects 
+it Should Calculate The Final Score Only For Three Subjects And Ignore The Other Subjects
+
+
+
+
+when The Student Has Attempted The Mock Exam Multiple Times 
+it Should Find The Lastt Attempt Taken By The Student
+
+
+
+
+given Student With Standalone Plan 
+when He Upgrades To A Phase Five Plan 
+it Should End The Current Plan And Fire Student Upgrades Plan Event
+
+
+
+
+given Infomercial Banner Type 
+it Should Return The Infomercial Which Default Infomercial True For Given Banner Type
+
+
+
+
+given Marks For Correct Answers And Marks For Incorrect Answers 
+it Should Calculate Final Score
+
+
+
+
+given Student Exam Id 
+when User Re Attempts Past Exam 
+it Should Throw Illegal Argument Exception As Re Attempt Exam Is Applicable Only For Mock Exam
+
+
+
+
+given A Student With Newly Reset Plans History 
+when Subscribed For Multiple Premium Plans 
+it Should Return Currently Bought And Active Premium Plans
+
+
+
+
+given A Entry Level Student Plan 
+when Its Lead Phase Expires In The Next Seven Days 
+it Should Return True
+
+
+
+
+given A Basic Plan Subscribed Student 
+when Upgraded To Next Basic Plan 
+it Should Return The Upgraded From Basic Plan
+
+
+
+
+given Student With Trail Plan 
+when He Upgrades To A Composeable Term Plan 
+it Should Assign New Composeable Plan To Student
+
+
+
+
+given Exam Id 
+when The Method For Student Notification Called 
+it Should Return Student Notification
+
+
+
+
+given A Composeable Plan Type 
+when A Upgrade Occurs To Full Contents Plan Type 
+it Should Return True
+
+
+
+
+test Is Phase Active
+
+
+
+
+it Should Check For The Null Template Exam Id
+
+
+
+
+given Student Id Topic Id And Difficulty Level As ONE 
+it Should Return Reviewed Questions By Topic And Difficulty
+
+
+
+
+testupdate With Performance Improvement Index
+
+
+
+
+given A Three Real Time Exams Are Created After User Reads Notifications 
+when Notification Is Created 
+it Should Hash Separated Message String
+
+
+
+
+given A Standalone Plan Type 
+when A Upgrade Occurs To Composeable Plan Type 
+it Should Return True
+
+
+
+
+when The Student Has Attempted The Mock Exam Multiple Times 
+it Should Find The Last Attempt Taken By The Student
+
+
+
+
+when The Number Of Active Mock Exams For A Entrance Exam Code Is Less Than The Allowable Limit 
+it Should Return True
+
+
+
+
+given Student With Standalone Plan 
+when Extension Plan Is Purchased 
+it Should Not Allow Validity Extension
+
+
+
+
+given Exam Id 
+when The Method For Start Exam Trigger Called 
+it Should Return Trigger For Start Exam
+
+
+
+
+it Should Mark Allowed For User With Subscription Role
+
+
+
+
+when Student Purchased Two Plans 
+it Should Include Only Questions From Phases Purchased By Student
+
+
+
+
+given Student Upgrades Plan Event 
+ 
+when Upgrade Is To A Free Plan 
+it Should Make The Student A Registered User
+
+
+
+
+given User Login With User Domain Role 
+when The Domain Role Is Queries 
+it Should Return The Domain Role
+
+
+
+
+given A Student 
+when Purchase Multiple Plans 
+it Should Call The Multiple Plan Notification Method
+
+
+
+
+given Junior Faculty Role Authority 
+it Should Return List Of All Junior Faculty Notifications
+
+
+
+
+given Coupon Code And Student Id 
+when Coupon Is Applied For Multiple User 
+it Should Keep Coupon As Active
+
+
+
+
+collect All J Unit Test Methods
+
+
+
+
+given A Subscribed User 
+it Should Allow Three For Past Exam
+
+
+
+
+given From Date And Thru Date And Plan Ids 
+it Should Return The Count Of Student Enquiry
+
+
+
+
+test Attach New Answer Sheet To Student Exam
+
+
+
+
+given A Student With Newly Reset Plans History 
+when Subscribed For Entry Level Plan 
+it Should Return Empty Plan List
+
+
+
+
+given A Student With Newly Reset Plans History 
+when Subscribed For Multiple Basic Plans 
+it Should Return Empty Plan List
+
+
+
+
+When A Exam Results Are Computed With Zero Negative Marking 
+it Should Derive Performance Summary
+
+
+
+
+given A Student Buying Phase Three 
+when He Is Buying Phase Three Along With Phase One Multi Package 
+it Should Return Normal Price For Phase Three And Discounted Price One For Phase One
+
+
+
+
+given The Correct Answer Sheet 
+ When The Exam Is Completed 
+it Should Compute The Total Marks
+
+
+
+
+it Should Return The Two Most Recent Real Time Exam Attempts For Given Entrance Exam And Student
+
+
+
+
+given Chapter Personal Notes And List Of Personal Note By Chapter 
+when The Given List Does Not Contain The Chapter 
+it Should Return List By Adding One New Dto With The Given Chapter
+
+
+
+
+given Real Time Exams Are Created After Student Reads Notifications 
+when Logged In Student Is Not Intern Graduate 
+it Should Return Zero Notifications
+
+
+
+
+given A Registered User 
+ When Property Key For Exam Category All Is Requested 
+it Should Return A Empty String
+
+
+
+
+it Should Calculate The Final Score And Group It By Phases
+
+
+
+
+it Should Return Improvement Index And Student Exam Id
+
+
+
+
+test Get Role Class
+
+
+
+
+given Collection Of Abusive Words When Enquiry Contains Abusive Words It Should Return True
+
+
+
+
+given The Expiry Date Is In The Past 
+it Should Return Coupon Status As Expired
+
+
+
+
+given Subject And Self Study Unit Id 
+it Should Return Total Number Of Question For A Given Subject
+
+
+
+
+when Plan Purchased Includes Only First Purchase 
+it Should Return False
+
+
+
+
+given The List Of Question Comment Response Dto And The Right Answer 
+it Should The Right Answer Explanation
+
+
+
+
+it Should Return Exam Property Key As No Of Past Test For Subscribed User For Exam Category Past
+
+
+
+
+given A Student With Reset Plans History And A Premium Plan Subscription 
+when Upgraded To Another Premium Plan 
+it Should Return The Upgraded From Premium Plan
+
+
+
+
+when Current Date Is After Validity Expiration 
+it Should Return False
+
+
+
+
+given Student With Composeable Plan 
+when He Tries To Upgrade To Full Contents Plan 
+it Should End The Current Plan And Fire Student Upgrades Plan Event
+
+
+
+
+given A Registered Student 
+when Subscribed For A Trial Plan 
+it Should Return Currently Bought And Active Trial Plan
+
+
+
+
+given Student Id And Phase 
+it Should Return The Subject Based Self Study Metrics
+
+
+
+
+given Student With Basic Plan 
+it Should Calculate Permitted Self Study Time Using Phased Based Study Duration
+
+
+
+
+given A Student With Newly Reset Plans History 
+when Subscribed For Multiple Basic Plans 
+it Should Return Currently Bought And Active Basic Plans
+
+
+
+
+given A Expired Coupon 
+when It Is Applied 
+it Should Throw A Coupon Cannot Be Applied
+
+
+
+
+given Current Date 
+when Plan Phase Is After The Current Date 
+it Should Return True
+
+
+
+
+given Student With Standalone Plan 
+when He Tries To Upgrade To Trail Plan 
+it Should End The Current Plan And Fire Student Upgrades Plan Event
+
+
+
+
+when Now Is Within Notification Window 
+it Should Return True
+
+
+
+
+it Should Transform To Minute And Return Same Map
+
+
+
+
+given Plan Expires Tomorrow 
+when Notification Has Been Read 
+it Should Return Zero Notifications
+
+
+
+
+given Closed On And List Of Activator Comments 
+when Activator Updates The Comment 
+it Should Register Question Comment Close Event
+
+
+
+
+given Faculty Position As Junior Faculty And Question Status 
+it Should Return List Of Question Comment Details Of All Faculties For A Given Faculty Position
+
+
+
+
+test Calculate Plan End Date
+
+
+
+
+given Multiple Composeable Plans Are Purchased 
+when Phase Two Plan Is Purchased With Phase Three Plan 
+it Should Calculate The Discounted Rate
+
+
+
+
+given Student Id And Authority 
+when The Current Date Is Not In Plan Upgrade Window 
+it Should Throw Invalid Upgrade Attempt Exception
+
+
+
+
+when Questions In Entrance Exam Is Equal To Question In Created Exam 
+it Should Return Duration Equal To Entrance Exam Duration
+
+
+
+
+given An Entry Level Plan Subscribed Student 
+when Upgraded To Next Entry Level Plan 
+it Should Return The Upgraded From Entry Level Plan
+
+
+
+

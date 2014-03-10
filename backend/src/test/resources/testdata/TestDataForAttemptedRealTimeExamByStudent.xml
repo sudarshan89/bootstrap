@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<dataset>
+    <!--Invalid Test data-->
+    <exam ID="1"  EXAM_DURATION="PT7200S" EXAM_TYPE="REAL_TIME" NAME="Real" SCHEDULED_ON="2013-278T17:00:00.000" STATUS="ResultsComputed" ENTRANCEEXAM="DNB_CET"  />
+    <exam ID="2"  EXAM_DURATION="PT7200S" EXAM_TYPE="PAST_TIME" NAME="Real" SCHEDULED_ON="2013-270T17:00:00.000" STATUS="ResultsComputed" ENTRANCEEXAM="KLE"  />
+    <!-- Valid Test data-->
+    <exam ID="3"  EXAM_DURATION="PT7200S" EXAM_TYPE="REAL_TIME" NAME="Real" SCHEDULED_ON="2013-277T17:00:00.000" STATUS="ResultsComputed" ENTRANCEEXAM="KMC"  />
+    <exam ID="4"  EXAM_DURATION="PT7200S" EXAM_TYPE="REAL_TIME" NAME="Real" SCHEDULED_ON="2013-260T17:00:00.000" STATUS="ResultsComputed" ENTRANCEEXAM="AIIMS"  />
+    <exam ID="5"  EXAM_DURATION="PT7200S" EXAM_TYPE="REAL_TIME" NAME="Real" SCHEDULED_ON="2013-259T17:00:00.000" STATUS="ResultsComputed" ENTRANCEEXAM="JIPMER"  />
+
+
+    <!--Invalid Test data-->
+    <entrance_exam EXAM_CODE="DNB_CET" EXAM_NAME="dnbcet" />
+    <entrance_exam EXAM_CODE="KLE" EXAM_NAME="kle" />
+    <!-- Valid Test data-->
+    <entrance_exam EXAM_CODE="KMC" EXAM_NAME="kmc" />
+    <entrance_exam EXAM_CODE="AIIMS" EXAM_NAME="aiims" />
+    <entrance_exam EXAM_CODE="JIPMER" EXAM_NAME="jipmer" />
+
+
+    <!-- Invalid Test data-->
+    <student_exam ID="1"  EXAM_TYPE="REAL_TIME" STATUS="STARTED"   TEMPLATEEXAM="1" STUDENT="S001" />
+    <student_exam ID="2"  EXAM_TYPE="REAL_TIME" STATUS="COMPLETED" TEMPLATEEXAM="2" STUDENT="S001" />
+    <!-- Valid Test data-->
+    <student_exam ID="3"  EXAM_TYPE="REAL_TIME" STATUS="COMPLETED" TEMPLATEEXAM="3" STUDENT="S001" />
+
+</dataset>

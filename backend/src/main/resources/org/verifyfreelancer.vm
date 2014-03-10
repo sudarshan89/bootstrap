@@ -1,0 +1,13 @@
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+</head>
+<body>
+Hi ${firstName},
+<br><br>
+Please login  into application ${application.url} with following credentials<br>
+UserName : ${userName}<br>
+Please use the password which was provided during registration process.
+<br/>
+    #parse("org/_thanks&Regards.vm")
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+</head>
+<body>
+Dear ${firstName},
+<br>
+<h3><p style="color: #cc0000; font-size: 18pt">Welcome to entrancebook</p></h3>
+<p>Thanks for registering and also for showing interest to associate with us.</p>
+<p>By registering with us, we believe that you will be interested to associate with us either on part-time base, contractual or on full-time mode. Our representative will contact you either over email or over phone to understand more about possibilities of your association with us.</p>
+<p>Meanwhile you could explore our <a style="margin-right:5px" href="https://entrancebook.zendesk.com/hc/en-us/sections/200249557-Subject-Experts
+">help center</a> specific to freelance experts, subject experts and subject specialists. You can also place your queries their registering at the website.</p>
+    #parse("org/_thanks&Regards.vm")
+    #parse("org/_customerSupprot.vm")
+    #parse("org/_disclaimer.vm")
+</body>
+</html>

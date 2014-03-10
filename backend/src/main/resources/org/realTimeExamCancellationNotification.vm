@@ -1,0 +1,18 @@
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+</head>
+<body>
+Dear ${firstName},
+<p>We are hereby cancelling the scheduled real-time test which is mentioned below.</p>
+<table>
+<tr><td><b>Test Name :</b></td><td> ${examLabel}	<br></td></tr>
+<tr><td><b>Date	     :</b></td><td> ${scheduledOn}<br></td></tr>
+<tr><td><b>Duration  :</b></td><td> ${durationHour} : ${durationMin} Hrs</br></td></tr>
+<tr><td><b>Time      :</b></td><td> ${scheduledTime}<br></td></tr>
+</table>
+<p>We are sorry for the inconvenience. We will again intimate you when we schedule the next real-time test. </p>
+    #parse("org/_thanks&Regards.vm")
+    #parse("org/_customerSupprot.vm")
+    #parse("org/_disclaimer.vm")
+</body>
+</html>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:axon="http://www.axonframework.org/schema/core" xmlns:cache="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="http://www.axonframework.org/schema/core http://www.axonframework.org/schema/axon-core.xsd
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+    <context:annotation-config/>
+
+    <axon:annotation-config />
+
+    <!--
+     <bean class="org.axonframework.eventhandling.annotation.AnnotationEventListenerBeanPostProcessor"/>
+
+     <bean class="org.axonframework.commandhandling.annotation.AnnotationCommandHandlerBeanPostProcessor"/>
+     -->
+
+    <!-- ================================================ -->
+    <!-- Example with an embedded ref -->
+    <!-- ================================================ -->
+    <!-- <axon:commandBus id="commandBus"> <axon:interceptors> <ref local="commandbus-interceptor"/>
+         </axon:interceptors> </axon:commandBus> -->
+
+    <!-- ================================================ -->
+    <!-- Example with an embedded bean -->
+    <!-- ================================================ -->
+    <!--
+     <axon:commandBus id="commandBus">
+         <axon:interceptors>
+             <bean class="org.axonframework.commandhandling.interceptors.SpringTransactionalInterceptor">
+                 <property name="transactionManager" ref="transactionManager" />
+             </bean>
+         </axon:interceptors>
+     </axon:commandBus>
+     -->
+
+    <!-- ================================================ -->
+    <!-- Example with a single interceptor ref            -->
+    <!-- ================================================ -->
+    <!--
+    <bean id="commandBus" class="org.axonframework.commandhandling.SimpleCommandBus">
+         <property name="interceptors"> <bean class="org.axonframework.commandhandling.interceptors.SpringTransactionalInterceptor">
+         <property name="transactionManager" ref="transactionManager"/> </bean> </property>
+    </bean>
+    -->
+    <axon:command-bus id="commandBus" transaction-manager="transactionManager"/>
+
+    <bean id="commandGateway" class="org.axonframework.commandhandling.gateway.DefaultCommandGateway">
+        <constructor-arg name="commandBus" ref="commandBus"/>
+        <constructor-arg  name="commandDispatchInterceptors">
+            <array value-type="org.axonframework.commandhandling.CommandDispatchInterceptor">
+            </array>
+        </constructor-arg>
+    </bean>
+
+    <bean id="beanValidationInterceptor" class="org.axonframework.commandhandling.interceptors.BeanValidationInterceptor"/>
+
+    <bean id="eventBus" class="org.axonframework.eventhandling.SimpleEventBus" />
+
+    <axon:jpa-event-store id="eventStore"/>
+
+   <!-- <axon:jpa-repository aggregate-type="com.macula.student.domain.model.StudentExam" event-bus="eventBus" id="studentExamRepository"/>-->
+
+
+    <!-- Non Axon beans below this -->
+
+
+
+    <bean id="iEncryportDecryptor" class="org.nthdimenzion.security.application.services.EncryptDecryptService">
+        <constructor-arg name="textEncryptor" ref="basicTextEncryptor"/>
+    </bean>
+
+    <bean id="basicTextEncryptor" class="org.jasypt.util.text.BasicTextEncryptor">
+        <property name="password">
+            <value>macula</value>
+        </property>
+    </bean>
+    <bean id="useVerificationServlet" class="org.nthdimenzion.security.servlets.UserVerificationServlet" />
+
+    <bean id="iuserLoginRepository" class="org.nthdimenzion.security.infrastructure.repositories.UserLoginRepository"/>
+
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl"/>
+
+    <bean id= "mailService" class="org.nthdimenzion.security.application.services.MailService">
+        <qualifier value="mailService"/>
+        <constructor-arg name="javaMailSender" ref="mailSender"/>
+    </bean>
+
+    <bean id="velocityEngine" class=" org.springframework.ui.velocity.VelocityEngineFactoryBean">
+        <property name="velocityProperties">
+            <value>
+                resource.loader=class
+                class.resource.loader.class=org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+            </value>
+        </property>
+    </bean>
+
+    <cache:annotation-driven/>
+
+    <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+        <property name="caches">
+            <set>
+                <bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" p:name="studentId"/>
+            </set>
+        </property>
+    </bean>
+
+
+
+</beans>

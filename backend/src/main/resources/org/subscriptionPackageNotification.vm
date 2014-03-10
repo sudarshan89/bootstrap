@@ -1,0 +1,17 @@
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+</head>
+<body>
+Dear ${firstName},
+<p style="color:#cc0000 ; font-size: 18pt">Thanks for subscribing the package '${planDescription}'</p>
+<p>This is to inform you that your payment has been received for the package '${planDescription}' of Rs. ${price}. This package is valid till ${planEndDate} and you will receive a reminder email 7 days before the expiry to advise you on the next process. </p>
+<p> The details of the payment history done electronically will be saved in My Account section for your later use.</p>
+<p>We strongly recommend you to please visit our 'Help Center' specifically the <a href="https://entrancebook.zendesk.com/hc/en-us/sections/200270473-Packages">Packages</a> section to know more about your respective package and other related topics.
+   This will help you to optimally utilize the resources for which you are paying for. </p>
+We wish you all the best.
+<br>
+    #parse("org/_thanks&Regards.vm")
+    #parse("org/_customerSupprot.vm")
+    #parse("org/_disclaimer.vm")
+</body>
+</html>

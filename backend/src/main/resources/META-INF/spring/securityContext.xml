@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <bean id="messageSource"
+          class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>messages</value>
+            </list>
+        </property>
+    </bean>
+
+    <security:global-method-security pre-post-annotations="enabled" secured-annotations="enabled"/>
+
+    <security:http auto-config="true" entry-point-ref="authenticationEntryPoint" disable-url-rewriting="true">
+
+        <security:session-management>
+            <security:concurrency-control max-sessions="1" error-if-maximum-exceeded="false" />
+
+        </security:session-management>
+
+        <security:intercept-url pattern="/index.html" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <security:intercept-url pattern="/signup.html" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <security:intercept-url pattern="/upload.html" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <security:intercept-url pattern="/nonsecure/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <security:intercept-url pattern="/*.html" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+
+        <security:intercept-url pattern="/*.css" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <security:intercept-url pattern="/*.js" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <security:intercept-url pattern="/images/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+
+
+        <security:intercept-url pattern="/api/student/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <security:intercept-url pattern="/api/signUpMaster/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <security:intercept-url pattern="/api/notification/getallnotification/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <security:intercept-url pattern="/api/security/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <security:intercept-url pattern="/api/imgsrc/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <security:intercept-url pattern="/api/social/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+
+
+        <security:intercept-url pattern="/api/**" access="IS_AUTHENTICATED_REMEMBERED" />
+
+        <security:intercept-url pattern="/**/*.html" access="IS_AUTHENTICATED_REMEMBERED" />
+        <security:form-login login-page="/index.html" always-use-default-target="true" login-processing-url="/login"
+                             authentication-failure-url="/app/login.html?login_error=1"
+                             authentication-success-handler-ref="authenticationSuccessHandler"
+                             authentication-failure-handler-ref="authenticationFailureHandler"/>
+        <security:logout logout-url="/logout" invalidate-session="true"
+                         logout-success-url="/index.html" delete-cookies="JSESSIONID" />
+        <security:access-denied-handler error-page="/denied" />
+    </security:http>
+
+    <bean id="authenticationEntryPoint"
+          class=" org.nthdimenzion.security.application.services.Http401UnauthorizedEntryPoint"/>
+
+    <bean id="saltSource"
+                class="org.springframework.security.authentication.dao.SystemWideSaltSource"
+                p:systemWideSalt ="macula"/>
+
+
+    <bean class="org.springframework.security.authentication.encoding.ShaPasswordEncoder" id="passwordEncoder"/>
+
+    <bean id="daoAuthenticationProvider"
+                class="org.springframework.security.authentication.dao.DaoAuthenticationProvider"
+                p:passwordEncoder-ref="passwordEncoder"
+                p:saltSource-ref="saltSource"
+                p:userDetailsService-ref="userService"/>
+
+
+    <security:authentication-manager>
+        <security:authentication-provider ref="daoAuthenticationProvider"/>
+    </security:authentication-manager>
+
+    <bean id="authenticationSuccessHandler" class="org.nthdimenzion.security.application.services.AuthenticationSuccessHandler">
+        <property name="defaultTargetUrl" value="/app/index.html" />
+        <property name="alwaysUseDefaultTargetUrl" value="true"/>
+    </bean>
+
+    <bean id="authenticationFailureHandler"
+          class="org.nthdimenzion.security.application.services.AuthenticationFailureHandler">
+        <property name="defaultFailureUrl" value="/login.jsp"/>
+    </bean>
+
+    <bean id="userValidationService" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
+        <property name="dataSource" ref="dataSourceRef"/>
+        <property name="enableGroups" value="true"/>
+        <property name="enableAuthorities" value="false"/>
+        <property name="usersByUsernameQuery"
+                  value="select ul.username,ul.password,ul.is_enabled from USER_LOGIN ul where ul.username = ?"/>
+        <property name="groupAuthoritiesByUsernameQuery" value="select sg.id group_id,sg.name group_name,sp.PERMISSION_ID permission
+			from USER_LOGIN ul,SECURITY_GROUP sg,SECURITY_PERMISSION sp,
+			USERLOGIN_SECURITY_GROUPS ulsg,
+			SECURITYGROUP_SECURITY_PERMISSIONS sgsp
+			where ul.username = ?
+			and ul.id = ulsg.USERLOGIN
+			and ulsg.SECURITYGROUPS = sg.id
+			and sgsp.SECURITYGROUP = sg.id
+			and sgsp.SECURITYPERMISSIONS = sp.id"/>
+    </bean>
+
+
+</beans>

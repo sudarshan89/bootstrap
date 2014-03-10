@@ -1,0 +1,20 @@
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+</head>
+<body>
+Dear ${firstName},
+<br/>
+<p style="color: #cc0000 ; font-size: 18pt;font-weight:bold">Thanks for upgrading.</p>
+<p>This is to inform you that you have upgraded your package from ${oldPlanDescription} to ${planDescription} by paying Rs ${price}  against the plan on ${purchaseDate}. The present package is valid till ${planEndDate}. </p>
+<p> The details of the payment history done electronically will be saved in My Account section for your later use.</p>
+<p>We presume that you had a look into this Help Center - especially the article  <a style="margin-right:5px" href="  https://entrancebook.zendesk.com/hc/en-us/articles/200965938-Basic-Advanced-package">Basic & Advanced Package</a> at the time of your registration. If not we still recommend you to please go through the Help Center to understand the portal and its functions better. </p>
+<p>We also recommend you to please visit our 'Help Center' specifically the <a style="margin-right:5px" href=" https://entrancebook.zendesk.com/hc/en-us/sections/200270473-Packages
+">Packages</a> section to know more about your respective package and other related topics. This will help you to optimally utilize the resources for which you are paying for. </p>
+<br/>
+We wish you all the best . . .
+<br/>
+    #parse("org/_thanks&Regards.vm")
+    #parse("org/_customerSupprot.vm")
+    #parse("org/_disclaimer.vm")
+</body>
+</html>

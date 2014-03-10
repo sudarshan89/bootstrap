@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dataset>
+
+    <student_exam ID="1" FINAL_SCORE="190" EXAM_TYPE="REAL_TIME" TEMPLATEEXAM="3" STATUS = 'COMPLETED'/>
+    <student_exam ID="2" FINAL_SCORE="200" EXAM_TYPE="REAL_TIME" TEMPLATEEXAM="3" STATUS = 'COMPLETED'/>
+
+    <student_exam ID="3" FINAL_SCORE="250" EXAM_TYPE="REAL_TIME" TEMPLATEEXAM="5" STATUS = 'COMPLETED'/>
+
+</dataset>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   					   http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/tx
+                           http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations" value="classpath:mysql.database.properties"/>
+    </bean>
+
+    <bean id="dataSourceRef" class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver" />
+        <property name="jdbcUrl" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="maxConnectionsPerPartition" value="50"/>
+        <property name="minConnectionsPerPartition" value="10"/>
+        <property name="acquireIncrement" value="10"/>
+        <property name="partitionCount" value="3"/>
+        <property name="statementsCacheSize" value="20"/>
+    </bean>
+
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="persistenceUnitName" value="nthdimenzion"/>
+        <property name="packagesToScan" value="org.nthdimenzion.ddd.domain,
+                                             org.nthdimenzion.security.domain"/>
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="databasePlatform" value="${hibernate.sql.dialect}"/>
+                <property name="generateDdl" value="${hibernate.sql.generateddl}"/>
+                <property name="showSql" value="${hibernate.sql.show}"/>
+            </bean>
+        </property>
+        <property name="dataSource" ref="dataSourceRef"/>
+    </bean>
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <tx:annotation-driven proxy-target-class="true"/>
+    <bean id="namingStrategy" class="org.nthdimenzion.ddd.infrastructure.hibernate.CustomNamingStrategy"/>
+</beans>

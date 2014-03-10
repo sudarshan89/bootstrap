@@ -1,0 +1,25 @@
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+</head>
+<body>
+Dear ${firstName},
+<br>
+<p style="color: #cc0000 ; font-size: 12pt;font-weight:bold">Thanks for upgrading the &#39;${build.buildType} entry level package&#39;.</p>
+<p>You had subscribed to &#39; entry level package&#39; and based on your request, we have upgraded to ${planDescription} package. </p>
+<p>Once you are through with  ${studentPlanPhase} term exams,
+    #if( $studentPlanPhase.equalsIgnoreCase("Internee/Graduate") )
+        you can request us to extend the subscription for a nominal fee.
+    #else
+        we request you to write to us requesting to upgrade to the next phase contents.
+    #end
+    </p>
+<p>We presume that you had a look into this Help Center -  especially the article <a style="margin-left:5px" href="https://entrancebook.zendesk.com/hc/en-us/articles/201200913-MBBS-Entry-package
+">${build.buildType} Entry Package</a> at the time of your registration. If not we still recommend you to please go through the Help Center to understand the portal and its functions better.</p>
+<br>
+We wish you all the best . . .
+<br>
+    #parse("org/_thanks&Regards.vm")
+    #parse("org/_customerSupprot.vm")
+    #parse("org/_disclaimer.vm")
+</body>
+</html>

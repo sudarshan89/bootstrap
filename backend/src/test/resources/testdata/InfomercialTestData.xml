@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dataset>
+
+
+    <infomercial ID="1" DEFAULT_INFOMERCIAL="1" DISPLAY_ON="2014-01-24" INFOMERCIAL_BANNER_TYPE="TYPEA" INFOMERCIAL_NAME="Default" />
+    <infomercial ID="2" DEFAULT_INFOMERCIAL="1" DISPLAY_ON="2014-01-24" INFOMERCIAL_BANNER_TYPE="SIDEA" INFOMERCIAL_NAME="Default" />
+    <infomercial ID="3" DEFAULT_INFOMERCIAL="1" DISPLAY_ON="2014-01-24" INFOMERCIAL_BANNER_TYPE="SIDEB" INFOMERCIAL_NAME="Default" />
+    <infomercial ID="4" DEFAULT_INFOMERCIAL="0" DISPLAY_ON="2014-01-31" INFOMERCIAL_BANNER_TYPE="TYPEA" INFOMERCIAL_NAME="date" />
+    <infomercial ID="5" DEFAULT_INFOMERCIAL="0" DISPLAY_ON="2014-01-24" INFOMERCIAL_BANNER_TYPE="TYPEA" INFOMERCIAL_NAME="Key" />
+    <infomercial ID="6" DEFAULT_INFOMERCIAL="0" DISPLAY_ON="2014-01-31" INFOMERCIAL_BANNER_TYPE="TYPEA" INFOMERCIAL_NAME="date" />
+    <infomercial ID="7" DEFAULT_INFOMERCIAL="0" DISPLAY_ON="2014-01-31" INFOMERCIAL_BANNER_TYPE="SIDEB" INFOMERCIAL_NAME="key" />
+    <infomercial ID="8" DEFAULT_INFOMERCIAL="0" DISPLAY_ON="2014-01-31" INFOMERCIAL_BANNER_TYPE="TYPEA" INFOMERCIAL_NAME="key" />
+    <infomercial ID="9" DEFAULT_INFOMERCIAL="0" DISPLAY_ON="2014-01-31" INFOMERCIAL_BANNER_TYPE="TYPEA" INFOMERCIAL_NAME="key" />
+
+    <infomercial_key_words INFOMERCIAL="1" KEY_WORDS="headache" />
+    <infomercial_key_words INFOMERCIAL="2" KEY_WORDS="flu" />
+    <infomercial_key_words INFOMERCIAL="3" KEY_WORDS="cough" />
+    <infomercial_key_words INFOMERCIAL="4" KEY_WORDS="cancer" />
+    <infomercial_key_words INFOMERCIAL="5" KEY_WORDS="fever,cold,cough,flu" />
+    <infomercial_key_words INFOMERCIAL="6" KEY_WORDS="cancer,flu" />
+    <infomercial_key_words INFOMERCIAL="7" KEY_WORDS="cold" />
+    <infomercial_key_words INFOMERCIAL="8" KEY_WORDS="fever,cold" />
+    <infomercial_key_words INFOMERCIAL="9" KEY_WORDS="fever,cold,cough" />
+
+    <question_keywords QUESTIONID="1" KEYWORDS="fever" />
+    <question_keywords QUESTIONID="2" KEYWORDS="throught pain" />
+    <question_keywords QUESTIONID="3" KEYWORDS="cancer,flu" />
+    <question_keywords QUESTIONID="4" KEYWORDS="fever,cold,cough,flu" />
+    <question_keywords QUESTIONID="5" KEYWORDS="throught pain,hini flu" />
+    <question_keywords QUESTIONID="6" KEYWORDS="fever,cold,cough" />
+
+
+</dataset>

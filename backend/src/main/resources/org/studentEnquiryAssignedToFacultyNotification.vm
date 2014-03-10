@@ -1,0 +1,17 @@
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+</head>
+<body>
+Dear Dr. ${firstName},
+<br>
+<h3><p style="color: #cc0000; font-size: 18pt">Greetings from entrancebook...</p></h3>
+<p>We request your timely response to this below mentioned enquiry.</p>
+ <b>Enquiry :</b> ${enquiryText}<br><br>
+ <b>MCQ :</b> ${questionText} <br>
+ <b>Link :</b> <a href="http://www.entrancebook.com">Click here</a><br>
+ <b>Assigned Date and Time :</b>  ${assignedDate} at ${assignedTime}</p>
+We appreciate your timely response
+<br>
+    #parse("org/_thanks&Regards.vm")
+</body>
+</html>
