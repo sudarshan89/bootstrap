@@ -52,6 +52,7 @@
         <constructor-arg name="commandBus" ref="commandBus"/>
         <constructor-arg  name="commandDispatchInterceptors">
             <array value-type="org.axonframework.commandhandling.CommandDispatchInterceptor">
+                <ref bean="beanValidationInterceptor"/>
             </array>
         </constructor-arg>
     </bean>
