@@ -22,25 +22,6 @@
     <context:component-scan base-package="org.nthdimenzion.crud"/>
     <context:component-scan base-package="org.nthdimenzion.ddd.infrastructure.stubs"/>
 
-    <context:component-scan base-package="com.macula.student.query"/>
-    <context:component-scan base-package="com.macula.masterdata.view"/>
-    <context:component-scan base-package="com.macula.masterdata.service"/>
-    <context:component-scan base-package="com.macula.questionbank.query"/>
-    <context:component-scan base-package="com.macula.studentenquiry.service"/>
-
-
-<!--    <context:component-scan base-package="com.macula.student.service"/>-->
-    <context:component-scan base-package="com.macula.sharedkernel.query"/>
-    <context:component-scan base-package="com.macula.faculty.query"/>
-    <context:component-scan base-package="com.macula.studentenquiry.query"/>
-    <context:component-scan base-package="com.macula.admindashboard.query"/>
-    <context:component-scan base-package="com.macula.notification.query"/>
-    <context:component-scan base-package="com.macula.subscription.query"/>
-    <context:component-scan base-package="com.macula.selfstudy.query"/>
-    <context:component-scan base-package="com.macula.infomercial.query"/>
-
-
-    <bean id="studentExaminationDao" class="com.macula.student.service.StudentExaminationDao"/>
 
     <mvc:annotation-driven validator="validator"/>
 
@@ -58,7 +39,7 @@
     </bean>
 
     <jdbc:initialize-database data-source="dataSource">
-        <jdbc:script location="classpath:scripts/macula.sql" />
+        <jdbc:script location="classpath:scripts/bootstrap.sql" />
     </jdbc:initialize-database>
 
 

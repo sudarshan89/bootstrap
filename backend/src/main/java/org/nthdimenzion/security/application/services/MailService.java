@@ -15,30 +15,16 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+/**
+ * @TODO Refactor
+ */
+
 public class MailService {
 
     // Email Templates
 
     public static final String FORGOT_PASSWORD_DETAILS_EMAIL_TEMPLATE = "org/forgotPasswordDetails.vm";
-    public static final String REALTIME_EXAM_NOTIFICATION_EMAIL_TEMPLATE = "org/realTimeExamNotification.vm";
-    public static final String REALTIME_EXAM_CANCELLATION_EMAIL_TEMPLATE = "org/realTimeExamCancellationNotification.vm";
-    public static final String SUBSCRIPTION_NOTIFICATION_EMAIL_TEMPLATE = "org/subscriptionPackageNotification.vm";
-    public static final String SUBSCRIPTION_UPGRADE_EMAIL_TEMPLATE = "org/subscriptionUpgradedPackageNotification.vm";
-    public static final String PLAN_VALIDITY_EXTENDED_NOTIFICATION_EMAIL_TEMPLATE = "org/packagePlanValidityExtendedNotification.vm";
-    public static final String TRIAL_PLAN_PURCHASE_NOTIFICATION_EMAIL_TEMPLATE = "org/trialPlanPurchaseNotification.vm";
-    public static final String MULTI_PLAN_PURCHASE_NOTIFICATION_EMAIL = "org/multiplePlanPurchaseNotification.vm";
-    public static final String ENTRY_PLAN_UPGRADE_EMAIL = "org/entryLevelPlanUpgradeNotification.vm";
-    public static final String LAST_DAY_SUBSCRIPTION_EXPIRY_WARNING_EMAIL = "org/subscriptionExpiryLastDayWarning.vm";
-    public static final String TWO_WEEKS_BEFORE_SUBSCRIPTION_EXPIRY_WARNING_EMAIL = "org/subscriptionExpiryInTwoWeeksWarning.vm";
-    public static final String PLAN_RESET_NOTIFICATION_EMAIL = "org/planResetNotification.vm";
-    public static final String STUDENT_ENQUIRY_ASSIGNED_NOTIFICATION_EMAIL = "org/studentEnquiryAssignedToFacultyNotification.vm";
-    public static final String STUDENT_COUPON_CREATED_EMAIL = "org/studentCouponCreationNotification.vm";
-    public static final String ADMIN_REGISTERED_NOTIFICATION_EMAIL = "org/adminregistration.vm";
-    public static final String FREELANCER_REGISTRATION_EMAIL = "org/freeLancerRegistration.vm";
-    public static final String FREELANCER_VERIFY_EMAIL = "org/verifyfreelancer.vm";
     public static final String STUDENT_VERIFICATION_EMAIL = "org/emailUserLoginDetails.vm";
-    public static final String SPECIALIST_REGISTRATION_EMAIL = "org/subjectSpecialistLoginDetails.vm";
-    public static final String EXPERT_REGISTRATION_EMAIL = "org/subjectExpertLoginDetails.vm";
 
 
     @Autowired
@@ -124,146 +110,6 @@ public class MailService {
         Map resultMap = sendMail(mailSenderInfoMap, recipientMailAddress);
         return resultMap;
     }
-
-    public Map<String, Object> prepareEligibleStudentsForRealTimeContentAndSendMail(Map<String, Object> mailSenderInfoMap) {
-        String messageText = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, REALTIME_EXAM_NOTIFICATION_EMAIL_TEMPLATE, mailSenderInfoMap);
-        mailSenderInfoMap.put("subject", "Real-time Test Scheduled");
-        mailSenderInfoMap.put("messageBody", messageText);
-        String recipientMailAddress = (String) mailSenderInfoMap.get("email");
-        logger.debug(messageText);
-        Map resultMap = sendMail(mailSenderInfoMap, recipientMailAddress);
-        return resultMap;
-    }
-    public Map<String, Object> prepareEligibleStudentsForRealTimeExamCancellationContentAndSendMail(Map<String, Object> mailSenderInfoMap) {
-        String messageText = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, REALTIME_EXAM_CANCELLATION_EMAIL_TEMPLATE, mailSenderInfoMap);
-        mailSenderInfoMap.put("subject", "Real-time test cancelled");
-        mailSenderInfoMap.put("messageBody", messageText);
-        String recipientMailAddress = (String) mailSenderInfoMap.get("email");
-        logger.debug(messageText);
-        Map resultMap = sendMail(mailSenderInfoMap, recipientMailAddress);
-        return resultMap;
-    }
-
-    public Map<String, Object> prepareSubscriptionPlanPackageForStudentsContentAndSendMail(Map<String, Object> mailSenderInfoMap) {
-        String messageText = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, SUBSCRIPTION_NOTIFICATION_EMAIL_TEMPLATE, mailSenderInfoMap);
-        mailSenderInfoMap.put("subject", "Your package details");
-        mailSenderInfoMap.put("messageBody", messageText);
-        String recipientMailAddress = (String) mailSenderInfoMap.get("email");
-        logger.debug(messageText);
-        Map resultMap = sendMail(mailSenderInfoMap, recipientMailAddress);
-        return resultMap;
-    }
-
-    public Map<String, Object> prepareUpgradedSubscriptionPlanPackageForStudentsContentAndSendMail(Map<String, Object> mailSenderInfoMap) {
-        Map map = new HashMap();
-        map.put("email", mailSenderInfoMap.get("email"));
-        String messageText = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, SUBSCRIPTION_UPGRADE_EMAIL_TEMPLATE, mailSenderInfoMap);
-        mailSenderInfoMap.put("subject", "Upgrade details - entrancebook");
-        mailSenderInfoMap.put("messageBody", messageText);
-        String recipientMailAddress = (String) mailSenderInfoMap.get("email");
-        logger.debug(messageText);
-        Map resultMap = sendMail(mailSenderInfoMap, recipientMailAddress);
-        return resultMap;
-    }
-
-    public Map<String, Object> prepareSubscriptionPlanPackageForStudentPlanValidityExtendedContentAndSendMail(Map<String, Object> mailSenderInfoMap) {
-        String messageText = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, PLAN_VALIDITY_EXTENDED_NOTIFICATION_EMAIL_TEMPLATE, mailSenderInfoMap);
-        mailSenderInfoMap.put("subject", "Your package validity extended");
-        mailSenderInfoMap.put("messageBody", messageText);
-        String recipientMailAddress = (String) mailSenderInfoMap.get("email");
-        logger.debug(messageText);
-        Map resultMap = sendMail(mailSenderInfoMap, recipientMailAddress);
-        return resultMap;
-    }
-
-    public Map<String, Object> prepareStudentTrailPlanUpgradedContentAndSendMail(Map<String, Object> mailSenderInfoMap) {
-        String messageText = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, TRIAL_PLAN_PURCHASE_NOTIFICATION_EMAIL_TEMPLATE, mailSenderInfoMap);
-        mailSenderInfoMap.put("subject", "Your trial package is activated");
-        mailSenderInfoMap.put("messageBody", messageText);
-        String recipientMailAddress = (String) mailSenderInfoMap.get("email");
-        logger.debug(messageText);
-        Map resultMap = sendMail(mailSenderInfoMap, recipientMailAddress);
-        return resultMap;
-    }
-
-    public Map<String, Object> prepareSubscriptionForMultiplePackageForStudentsContentAndSendMail(Map<String, Object> mailSenderInfoMap) {
-        String messageText = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, MULTI_PLAN_PURCHASE_NOTIFICATION_EMAIL, mailSenderInfoMap);
-        mailSenderInfoMap.put("subject", "Package details - entrancebook");
-        mailSenderInfoMap.put("messageBody", messageText);
-        String recipientMailAddress = (String) mailSenderInfoMap.get("email");
-        logger.debug(messageText);
-        Map resultMap = sendMail(mailSenderInfoMap, recipientMailAddress);
-        return resultMap;
-    }
-
-    public Map<String, Object> prepareEntryLevelPlanUpgradedForStudentsContentAndSendMail(Map<String, Object> mailSenderInfoMap) {
-        String messageText = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine,ENTRY_PLAN_UPGRADE_EMAIL, mailSenderInfoMap);
-        mailSenderInfoMap.put("subject", "Package details - entrancebook");
-        mailSenderInfoMap.put("messageBody", messageText);
-        String recipientMailAddress = (String) mailSenderInfoMap.get("email");
-        logger.debug(messageText);
-        Map resultMap = sendMail(mailSenderInfoMap, recipientMailAddress);
-        return resultMap;
-    }
-
-    public Map<String, Object> prepareLastDaySubscriptionExpiryWarningForStudentsContentAndSendMail(Map<String, Object> mailSenderInfoMap)
-    {
-        //${firstName}, ${studentPlanPhase}, ${planExpiresToday}, ${planLabel} and ${planEndDate}
-        String messageText = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, LAST_DAY_SUBSCRIPTION_EXPIRY_WARNING_EMAIL, mailSenderInfoMap);
-        mailSenderInfoMap.put("subject", "Subscription Expires TODAY !!");
-        mailSenderInfoMap.put("messageBody", messageText);
-        String recipientMailAddress = (String) mailSenderInfoMap.get("email");
-        logger.debug(messageText);
-        Map resultMap = sendMail(mailSenderInfoMap, recipientMailAddress);
-        return resultMap;
-    }
-
-    public Map<String, Object> prepareTwoWeeksBeforeSubscriptionExpiryWarningForStudentsContentAndSendMail(Map<String, Object> mailSenderInfoMap)
-    {
-        //${firstName}, ${studentPlanPhase}, ${planExpiresToday}, ${planLabel} and ${planEndDate}
-        String messageText = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, TWO_WEEKS_BEFORE_SUBSCRIPTION_EXPIRY_WARNING_EMAIL, mailSenderInfoMap);
-        mailSenderInfoMap.put("subject", "Subscription Expires in 2 weeks");
-        mailSenderInfoMap.put("messageBody", messageText);
-        String recipientMailAddress = (String) mailSenderInfoMap.get("email");
-        logger.debug(messageText);
-        Map resultMap = sendMail(mailSenderInfoMap, recipientMailAddress);
-        return resultMap;
-    }
-
-    public Map<String, Object> preparePlanResetForStudentsContentAndSendMail(Map<String, Object> mailSenderInfoMap) {
-        //${firstName}
-        String messageText = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, PLAN_RESET_NOTIFICATION_EMAIL, mailSenderInfoMap);
-        mailSenderInfoMap.put("subject", "Plan reset successful");
-        mailSenderInfoMap.put("messageBody", messageText);
-        String recipientMailAddress = (String) mailSenderInfoMap.get("email");
-        logger.debug(messageText);
-        Map resultMap = sendMail(mailSenderInfoMap, recipientMailAddress);
-        return resultMap;
-    }
-
-    public Map<String, Object> prepareStudentEnquiryAssignedToFacultyContentAndSendMail(Map<String, Object> mailSenderInfoMap) {
-        Map map = new HashMap();
-        map.put("email", mailSenderInfoMap.get("email"));
-        String messageText = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, STUDENT_ENQUIRY_ASSIGNED_NOTIFICATION_EMAIL, mailSenderInfoMap);
-        mailSenderInfoMap.put("subject", " Student's enquiry on entrancebook");
-        mailSenderInfoMap.put("messageBody", messageText);
-        String recipientMailAddress = (String) mailSenderInfoMap.get("email");
-        logger.debug(messageText);
-        Map resultMap = sendMail(mailSenderInfoMap, recipientMailAddress);
-        return resultMap;
-    }
-    public Map<String, Object> prepareStudentCouponContentAndSendMail(Map<String, Object> mailSenderInfoMap) {
-        Map map = new HashMap();
-        map.put("email", mailSenderInfoMap.get("email"));
-        String messageText = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, STUDENT_COUPON_CREATED_EMAIL, mailSenderInfoMap);
-        mailSenderInfoMap.put("subject", " Your Coupon");
-        mailSenderInfoMap.put("messageBody", messageText);
-        String recipientMailAddress = (String) mailSenderInfoMap.get("email");
-        logger.debug(messageText);
-        Map resultMap = sendMail(mailSenderInfoMap, recipientMailAddress);
-        return resultMap;
-    }
-
 
 }
 

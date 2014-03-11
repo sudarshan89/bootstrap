@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import static org.nthdimenzion.Constants.APP_PACKAGE_ROOT;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Admin
@@ -66,7 +68,7 @@ public class CheckForJUnitTestMethods {
     private Set<Method> getJUnitTestMethods() {
         Reflections reflections = new Reflections(
                 new ConfigurationBuilder().setUrls(
-                        ClasspathHelper.forPackage("com.macula") ).setScanners(
+                        ClasspathHelper.forPackage(APP_PACKAGE_ROOT) ).setScanners(
                         new MethodAnnotationsScanner()));
         return reflections.getMethodsAnnotatedWith(Test.class);
     }

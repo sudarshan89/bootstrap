@@ -4,11 +4,11 @@
 <body>
 Dear ${firstName},
 <p style="color: #cc0000; font-size: 18pt">Welcome to entrancebook</p>
-<p>Thanks for registering into our online self-study portal with your mail ID ${userName} as the user ID.
+<p>Thanks for registering into our online XYZ with your mail ID ${userName} as the user ID.
 To complete the process of registration we request you to either click the verify button or cut copy paste the below URL into the address bar.</p>
 <br/>
 <p>Your ID  :  ${userName}</p>
-<p>Module   :  ${build.buildType} PG Entrancebook</p>
+<p>Module   :  XYZ </p>
 <br/>
 <form method="post" action="${verficationUrl}" name="resetForm">
     <button style="background-color:green;padding:10px;color:#FFF;text-decoration:none">Verify</button>

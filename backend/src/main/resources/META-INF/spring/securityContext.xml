@@ -21,11 +21,11 @@
 
     <security:http auto-config="true" entry-point-ref="authenticationEntryPoint" disable-url-rewriting="true">
 
+        <!-- Uncomment this when you need to control concurrent user login
         <security:session-management>
             <security:concurrency-control max-sessions="1" error-if-maximum-exceeded="false" />
-
         </security:session-management>
-
+        -->
         <security:intercept-url pattern="/index.html" access="IS_AUTHENTICATED_ANONYMOUSLY" />
         <security:intercept-url pattern="/signup.html" access="IS_AUTHENTICATED_ANONYMOUSLY" />
         <security:intercept-url pattern="/upload.html" access="IS_AUTHENTICATED_ANONYMOUSLY" />
@@ -37,9 +37,7 @@
         <security:intercept-url pattern="/images/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 
 
-        <security:intercept-url pattern="/api/student/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-        <security:intercept-url pattern="/api/signUpMaster/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-        <security:intercept-url pattern="/api/notification/getallnotification/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+
         <security:intercept-url pattern="/api/security/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
         <security:intercept-url pattern="/api/imgsrc/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
         <security:intercept-url pattern="/api/social/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
@@ -62,7 +60,7 @@
 
     <bean id="saltSource"
                 class="org.springframework.security.authentication.dao.SystemWideSaltSource"
-                p:systemWideSalt ="macula"/>
+                p:systemWideSalt ="bootstrap"/>
 
 
     <bean class="org.springframework.security.authentication.encoding.ShaPasswordEncoder" id="passwordEncoder"/>

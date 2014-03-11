@@ -28,7 +28,6 @@
         <!--<context:exclude-filter type="regex" expression=".*.model.*"/>
         <context:exclude-filter type="regex" expression=".*.dto.*"/>-->
     </context:component-scan>
-    <!--<context:component-scan base-package="com.macula"/>-->
 
     <context:annotation-config/>
 

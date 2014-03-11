@@ -28,6 +28,7 @@ import java.util.concurrent.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.is;
+import static org.nthdimenzion.Constants.APP_PACKAGE_ROOT;
 
 /**
  * Created by IntelliJ IDEA.
@@ -48,7 +49,7 @@ public class CheckValidityOfSqlQueriesInCodebaseTest {
 
     @Test
     public void checkValidityOfSqlQueries() throws Exception{
-        final Set<Class<?>> finders = getFinders("com.macula");
+        final Set<Class<?>> finders = getFinders(APP_PACKAGE_ROOT);
         finders.addAll(getFinders("org.nthdimenzion"));
         final List<Query> queries = collectQueries(finders);
 

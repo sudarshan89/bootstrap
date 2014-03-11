@@ -12,8 +12,17 @@ import java.util.ArrayList;
  * To change this template use File | Settings | File Templates.
  */
 public class MySqlScriptTiH2DBTransformationUtility {
+
+    /****
+     * Configure these two paths
+     */
+    private static final String SCRIPTS_SQL = "\\scripts\\bootstrap.sql";
+    private static final String OUTPUT_PATH = "F:\\codebases\\bootstrap\\backend\\src\\test\\resources\\scripts\\bootstrap.sql";
+
+
     static final String SPACE = " ";
     static final String FOR_PRIMARY_KEY = ");" ;
+
     static ArrayList<String> showMyOutput = new ArrayList<String>() ;
     public static void main(String ar[]) throws FileNotFoundException {
         PrintWriter pw = null;
@@ -23,9 +32,9 @@ public class MySqlScriptTiH2DBTransformationUtility {
             String sReadLine = null;
 
             ClassLoader bundleClassLoader = Thread.currentThread().getContextClassLoader();
-            InputStream is = bundleClassLoader.getResourceAsStream("\\scripts\\macula.sql");
+            InputStream is = bundleClassLoader.getResourceAsStream(SCRIPTS_SQL);
 
-            URL url = bundleClassLoader.getResource("\\scripts\\macula.sql");
+            URL url = bundleClassLoader.getResource(SCRIPTS_SQL);
 
             System.out.println(" url " + url.getPath());
 
@@ -48,7 +57,7 @@ public class MySqlScriptTiH2DBTransformationUtility {
             br.close();
             is.close();
 
-            pw = new PrintWriter("E:\\Rathinakumar\\NthDimenzion\\Macula\\codeBase\\trunk\\services\\src\\test\\resources\\scripts\\macula.sql");
+            pw = new PrintWriter(OUTPUT_PATH);
             pw.print("");
 
             for (String df : myLine) {
