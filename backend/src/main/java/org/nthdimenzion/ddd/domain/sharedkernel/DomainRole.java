@@ -9,7 +9,7 @@ package org.nthdimenzion.ddd.domain.sharedkernel;
  */
 public enum DomainRole {
 
-    STUDENT("com.myapp.student.domain.model.Student");
+    ADMIN("org.nthdimenzion.ddd.domain.model.Admin");
 
     private String clazz;
 

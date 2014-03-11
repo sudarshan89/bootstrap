@@ -1,5 +1,6 @@
 package org.nthdimenzion.ddd.domain.service;
 
+import com.google.common.base.Function;
 import com.google.common.base.Preconditions;
 import org.nthdimenzion.crud.ICrud;
 import org.nthdimenzion.ddd.domain.model.PersonRole;
@@ -10,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * @TODO Refactor this
  * Created by IntelliJ IDEA.
  * User: Nthdimenzion
  * Date: 10/4/13
@@ -25,24 +25,35 @@ public class RoleService {
     @Autowired
     private IUserLoginRepository userLoginRepository;
 
+    private Function<String,Class> findDomainRole = new DefaultTechniqueToFinDomainRole();
+
     public <T> T getRolePlayedByUser(String username)  {
         UserLogin userLogin = userLoginRepository.findUserLoginWithUserName(username);
         PersonRole personRole = userLogin.getPersonRole();
         Preconditions.checkNotNull(personRole);
-        Class clazz = getRoleClass(personRole.getDomainRole());
+        Class clazz = findDomainRole.apply(personRole.getDomainRole());
         return (T) crudDao.find(clazz, personRole.getId());
     }
 
-    Class getRoleClass(String role) {
-        DomainRole domainRole = DomainRole.valueOf(role);
-        String className = domainRole.getDomainClass();
-        Class clazz = null;
-        try {
-            clazz = Class.forName(className);
-        } catch (ClassNotFoundException e) {
-            throw new UnsupportedOperationException("Class Not found " + className);
+    @Autowired(required = false)
+    public void setFindDomainRole(Function<String, Class> findDomainRole) {
+        this.findDomainRole = findDomainRole;
+    }
+
+    class DefaultTechniqueToFinDomainRole implements Function<String,Class>{
+
+        @Override
+        public Class apply(String role) {
+            DomainRole domainRole = DomainRole.valueOf(role);
+            String className = domainRole.getDomainClass();
+            Class clazz = null;
+            try {
+                clazz = Class.forName(className);
+            } catch (ClassNotFoundException e) {
+                throw new UnsupportedOperationException("Class Not found " + className);
+            }
+            return clazz;
         }
-        return clazz;
     }
 
 }

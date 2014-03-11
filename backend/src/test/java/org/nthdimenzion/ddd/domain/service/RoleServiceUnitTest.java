@@ -1,6 +1,5 @@
 package org.nthdimenzion.ddd.domain.service;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -17,17 +16,12 @@ import static org.hamcrest.Matchers.notNullValue;
 public class RoleServiceUnitTest {
 
     @Test
-    @Ignore
     public void testGetRoleClass(){
         RoleService roleService = new RoleService();
-        Class clazz = roleService.getRoleClass("STUDENT");
+        final RoleService.DefaultTechniqueToFinDomainRole defaultTechniqueToFinDomainRole = roleService.new DefaultTechniqueToFinDomainRole();
+        Class clazz = defaultTechniqueToFinDomainRole.apply("ADMIN");
         assertThat(clazz,is(notNullValue()));
-        assertThat(clazz.getSimpleName(),is("Student"));
-
-        clazz = roleService.getRoleClass("FACULTY");
-        assertThat(clazz,is(notNullValue()));
-        assertThat(clazz.getSimpleName(),is("Faculty"));
-
+        assertThat(clazz.getSimpleName(),is("Admin"));
 
     }
 }
