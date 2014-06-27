@@ -431,7 +431,7 @@
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.0.0.RC2</version>
+                <version>9.2.1.v20140609</version>
                 <configuration>
                     <waitForChild>true</waitForChild>
                     <stopKey>foo</stopKey>

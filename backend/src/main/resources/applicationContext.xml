@@ -14,7 +14,9 @@
     <mvc:annotation-driven validator="validator"/>
 
 
-    <context:component-scan base-package="org.nthdimenzion"/>
+    <context:component-scan base-package="org.nthdimenzion">
+        <context:exclude-filter type="regex" expression=".*model.*"/>
+    </context:component-scan>
 
     <import resource="META-INF/spring/databaseContext.xml"/>
     <import resource="META-INF/spring/securityContext.xml"/>
