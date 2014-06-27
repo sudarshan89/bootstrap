@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dataset>
+
+    <user_login ID="U001"  VALID_UPTO_DATE="2013-01-24" USERNAME="admin@gmail.com" PERSONROLE="1" />
+
+    <person_role ID="1" DOMAIN_ROLE="ADMIN" FIRST_NAME="FIRST" LAST_NAME="LAST" EMAIL="admin@gmail.com"/>
+
+    <admin ID="1"/>
+
+
+</dataset>
