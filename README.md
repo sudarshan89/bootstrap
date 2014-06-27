@@ -7,9 +7,9 @@ A seed project to create a backend with Axon,Spring and Hibernate.
 
 What you get Out of the Box ?
 
-DDD Building box
+DDD Building blocks
 
-CQRS building box
+CQRS building blocks
 
 DB Connectivity,Transaction and Logging Configuration,Unit/Integration Test setup/configuration
 
