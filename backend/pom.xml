@@ -10,8 +10,8 @@
     <packaging>war</packaging>
     <properties>
         <axon.version>2.1.1</axon.version>
-        <spring.version>4.0.2.RELEASE</spring.version>
-        <org.springsecurity.version>3.2.1.RELEASE</org.springsecurity.version>
+        <spring.version>4.0.5.RELEASE</spring.version>
+        <org.springsecurity.version>3.2.4.RELEASE</org.springsecurity.version>
         <hibernate-core-version>4.1.9.Final</hibernate-core-version>
         <cxf.version>2.6.0</cxf.version>
         <application.url>http://localhost:8083</application.url>
@@ -29,6 +29,13 @@
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>2.0.5</version>
+        </dependency>
+
         <dependency>
             <groupId>org.axonframework</groupId>
             <artifactId>axon-core</artifactId>
@@ -65,6 +72,18 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
             <version>${org.springsecurity.version}</version>
@@ -82,17 +101,7 @@
             <version>${org.springsecurity.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context-support</artifactId>
-            <version>3.1.1.RELEASE</version>
-        </dependency>
+        <!-- spring dependencies end -->
 
         <dependency>
             <groupId>javax.mail</groupId>
@@ -106,7 +115,6 @@
             <version>1.6.2</version>
         </dependency>
 
-        <!-- spring dependencies end-->
 
         <dependency>
             <groupId>com.jolbox</groupId>
@@ -129,7 +137,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>13.0</version>
+            <version>15.0</version>
         </dependency>
 
         <!-- Logging dependecies start -->
@@ -142,13 +150,13 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
-            <version>1.0.5</version>
+            <version>1.1.2</version>
         </dependency>
 
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.0.5</version>
+            <version>1.1.2</version>
         </dependency>
 
         <!-- Logging dependencies end -->
@@ -157,8 +165,8 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>0.12.0</version>
-            <scope>provided</scope>
+            <version>1.14.2</version>
+            <!--<scope>provided</scope>-->
         </dependency>
 
 
@@ -187,7 +195,7 @@
         <dependency>
             <groupId>uk.co.jemos.podam</groupId>
             <artifactId>podam</artifactId>
-            <version>3.0.2.RELEASE</version>
+            <version>3.6.0.RELEASE</version>
             <scope>test</scope>
         </dependency>
 
@@ -243,7 +251,7 @@
         <dependency>
             <groupId>com.github.springtestdbunit</groupId>
             <artifactId>spring-test-dbunit</artifactId>
-            <version>1.0.1</version>
+            <version>1.1.0</version>
             <scope>test</scope>
         </dependency>
 
@@ -308,12 +316,6 @@
 
         <!--view dependencies start -->
 
-        <!--<dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
-            <scope>provided</scope>
-        </dependency>-->
 
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -383,7 +385,7 @@
 
     <build>
         <defaultGoal>package</defaultGoal>
-        <finalName>macula</finalName>
+        <finalName>backend</finalName>
 
         <resources>
             <resource>
@@ -412,23 +414,24 @@
                     <useIncrementalCompilation>false</useIncrementalCompilation>
                     <!--skip>true</skip-->
                     <optimize>true</optimize>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <compilerArguments>
                     <processor>lombok.core.AnnotationProcessor</processor>
                     </compilerArguments>
                     <showWarnings>false</showWarnings>
                     <showDeprecation>false</showDeprecation>
-                    <!--<fork>true</fork>-->
                     <meminitial>512m</meminitial>
                     <maxmem>512m</maxmem>
                 </configuration>
             </plugin>
 
+
+
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.1.3.v20140225</version>
+                <version>9.0.0.RC2</version>
                 <configuration>
                     <waitForChild>true</waitForChild>
                     <stopKey>foo</stopKey>
@@ -453,17 +456,27 @@
     </build>
 
     <repositories>
+
+
         <repository>
-            <id>jboss</id>
-            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
+            <id>central</id>
+            <name>Maven Repository Switchboard</name>
+            <layout>default</layout>
+            <url>http://repo1.maven.org/maven2</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
         </repository>
 
+
     </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-releases</id>
+            <name>Spring Releases</name>
+            <url>http://repo.spring.io/libs-release</url>
+        </pluginRepository>
+    </pluginRepositories>
 
 </project>

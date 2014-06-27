@@ -25,7 +25,7 @@ public class RoleService {
     @Autowired
     private IUserLoginRepository userLoginRepository;
 
-    private Function<String,Class> findDomainRole = new DefaultTechniqueToFinDomainRole();
+    private Function<String,Class> findDomainRole = new DefaultTechniqueToFindDomainRole();
 
     public <T> T getRolePlayedByUser(String username)  {
         UserLogin userLogin = userLoginRepository.findUserLoginWithUserName(username);
@@ -40,7 +40,7 @@ public class RoleService {
         this.findDomainRole = findDomainRole;
     }
 
-    class DefaultTechniqueToFinDomainRole implements Function<String,Class>{
+    class DefaultTechniqueToFindDomainRole implements Function<String,Class>{
 
         @Override
         public Class apply(String role) {

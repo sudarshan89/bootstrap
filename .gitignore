@@ -20,6 +20,7 @@ target
 .svn
 *.iml
 
+
 # External tool builders
 .externalToolBuilders/
 
@@ -217,3 +218,5 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+*.db
+

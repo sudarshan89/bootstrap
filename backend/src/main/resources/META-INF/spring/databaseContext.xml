@@ -34,6 +34,8 @@
                 <property name="showSql" value="${hibernate.sql.show}"/>
             </bean>
         </property>
+        <property name = "persistenceXmlLocation"
+                  value = "classpath:/META-INF/persistence.xml" />
         <property name="dataSource" ref="dataSourceRef"/>
     </bean>
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">

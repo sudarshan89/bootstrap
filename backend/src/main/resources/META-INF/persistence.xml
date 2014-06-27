@@ -21,7 +21,7 @@
         <class>org.axonframework.eventstore.jpa.DomainEventEntry</class>
         <properties>
             <property name="hibernate.ejb.interceptor" value="org.nthdimenzion.ddd.infrastructure.hibernate.AutoColumnsPopulator" />
-            <property name="hibernate.hbm2ddl.auto" value="validate"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.ejb.naming_strategy" value="org.nthdimenzion.ddd.infrastructure.hibernate.CustomNamingStrategy" />
             <property name="jadira.usertype.autoRegisterUserTypes" value="true"></property>
             <property name="jadira.usertype.databaseZone" value="jvm"></property>

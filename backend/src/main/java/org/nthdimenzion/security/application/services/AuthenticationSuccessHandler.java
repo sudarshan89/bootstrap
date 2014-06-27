@@ -2,7 +2,6 @@ package org.nthdimenzion.security.application.services;
 
 
 import com.google.common.base.Function;
-import org.nthdimenzion.ddd.domain.model.PersonalDetails;
 import org.nthdimenzion.ddd.infrastructure.LoggedInUserHolder;
 import org.nthdimenzion.object.utils.Constants;
 import org.nthdimenzion.security.domain.IUserLoginRepository;

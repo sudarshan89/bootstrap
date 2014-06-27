@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--suppress ALL -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mockito="http://www.mockito.org/spring/mockito"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+       http://www.springframework.org/schema/jdbc
+       http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.mockito.org/spring/mockito classpath:spring/mockito.xsd">
+
+    <context:component-scan base-package="org.nthdimenzion">
+        <context:exclude-filter type="regex" expression="org.nthdimenzion.ddd.infrastructure.stubs.*"/>
+        <context:exclude-filter type="regex" expression="org.nthdimenzion.security.*"/>
+    </context:component-scan>
+
+    <bean id="authentication" class="org.nthdimenzion.security.application.services.AuthenticationStub"/>
+
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="persistenceUnitName" value="nthdimenzion"/>
+        <property name="packagesToScan" value="org.nthdimenzion.ddd.domain,
+                                             org.nthdimenzion.security.domain"/>
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="databasePlatform" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+                <property name="generateDdl" value="false"/>
+                <property name="showSql" value="true"/>
+            </bean>
+        </property>
+        <property name="persistenceXmlLocation" value = "classpath:/META-INF/persistence.xml"/>
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <tx:annotation-driven proxy-target-class="true"/>
+
+    <bean id="namingStrategy" class="org.nthdimenzion.ddd.infrastructure.hibernate.CustomNamingStrategy"/>
+
+    <bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close">
+        <property name="driverClass" value="org.h2.Driver" />
+        <property name="jdbcUrl" value="jdbc:h2:mem;MODE=MySQL" />
+        <property name="maxConnectionsPerPartition" value="50"/>
+        <property name="minConnectionsPerPartition" value="10"/>
+        <property name="acquireIncrement" value="10"/>
+        <property name="statementsCacheSize" value="20"/>
+        <property name="disableJMX" value="true"/>
+    </bean>
+
+    <jdbc:initialize-database data-source="dataSource">
+        <jdbc:script location="classpath:scripts/bootstrap.sql" />
+    </jdbc:initialize-database>
+
+
+    <bean id="springApplicationContext" class="org.nthdimenzion.common.service.SpringApplicationContext"/>
+
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+
+    <bean class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor"/>
+
+    <context:component-scan base-package="org.nthdimenzion.ddd.domain" />
+
+    <context:annotation-config/>
+
+    <import resource="META-INF/spring/serviceContext.xml"/>
+
+</beans>

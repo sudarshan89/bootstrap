@@ -51,7 +51,7 @@
                              authentication-success-handler-ref="authenticationSuccessHandler"
                              authentication-failure-handler-ref="authenticationFailureHandler"/>
         <security:logout logout-url="/logout" invalidate-session="true"
-                         logout-success-url="/index.html" delete-cookies="JSESSIONID" />
+                         logout-success-url="/index.html" />
         <security:access-denied-handler error-page="/denied" />
     </security:http>
 

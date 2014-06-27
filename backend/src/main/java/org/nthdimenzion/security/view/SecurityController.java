@@ -1,6 +1,6 @@
 package org.nthdimenzion.security.view;
 
-import com.google.common.base.Function;
+import java.util.function.Function;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import org.nthdimenzion.crud.ICrud;
@@ -20,7 +20,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,9 +33,8 @@ import javax.servlet.http.HttpSession;
  * Date: 6/8/13
  * Time: 1:26 PM
  */
-@Controller
-@RequestMapping(value = "/security", produces = MediaType.APPLICATION_JSON_VALUE,
-        consumes = MediaType.ALL_VALUE)
+@RestController
+@RequestMapping(value = "/security")
 public class SecurityController {
 
     private static final String USERINFO = "USERINFO";
@@ -70,7 +68,6 @@ public class SecurityController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/current-user", consumes = MediaType.ALL_VALUE)
-    @ResponseBody
     public String getCurrentUser(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
         SystemUser systemUser = (SystemUser) session.getAttribute(Constants.LOGGED_IN_USER);
@@ -87,7 +84,6 @@ public class SecurityController {
     }
 
     @RequestMapping(value = "/verifyuserid/{verificationCode}", method = RequestMethod.GET, consumes = MediaType.ALL_VALUE)
-    @ResponseBody
     public Boolean verifyUserId(@PathVariable("verificationCode") String verificationCode) {
         String decodedUserCode = EncryptionUtil.decrypt(iEncryportDecryptor, verificationCode);
         UserLogin userLogin = iUserLoginRepository.findUserLoginWithUserName(decodedUserCode);
@@ -95,7 +91,6 @@ public class SecurityController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/forgotPassword/{emailId:.+}", consumes = MediaType.ALL_VALUE)
-    @ResponseBody
     public ResponseEntity<Result> forgotPassword(@PathVariable("emailId") String emailId) {
         ResponseEntity responseEntity = new ResponseEntity(Result.Success(), HttpStatus.OK);
         try {
@@ -108,7 +103,6 @@ public class SecurityController {
 
 
     @RequestMapping(value = "/changePassword", method = RequestMethod.PUT)
-    @ResponseBody
     public Result changePassword(@RequestBody ChangePasswordDto changePasswordDto) {
         if (UtilValidator.isNotEmpty(changePasswordDto.oldPassword) && UtilValidator.isNotEmpty(changePasswordDto.newPassword) && changePasswordDto.oldPassword.equals(changePasswordDto.newPassword)) {
             return Result.Failure(ViewSystemMessages.OLD_AND_NEW_PASSWORD_SHOULD_NOT_BE_SAME.name());

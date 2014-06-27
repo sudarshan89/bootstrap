@@ -25,6 +25,10 @@ public class SecurityGroup implements ICrudEntity{
     @Getter(AccessLevel.PACKAGE)
     private String name;
 
+    public SecurityGroup(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     protected SecurityGroup() {
     }
