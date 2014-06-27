@@ -26,7 +26,7 @@ public class RoleService {
     @Autowired
     private IUserLoginRepository userLoginRepository;
 
-    private Function<String,Class> findDomainRole = (String role) -> {
+    Function<String,Class> findDomainRole = (String role) -> {
         DomainRole domainRole = DomainRole.valueOf(role);
         String className = domainRole.getDomainClass();
         Class clazz = null;

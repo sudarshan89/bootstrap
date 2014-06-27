@@ -18,8 +18,7 @@ public class RoleServiceUnitTest {
     @Test
     public void testGetRoleClass(){
         RoleService roleService = new RoleService();
-        final RoleService.DefaultTechniqueToFindDomainRole defaultTechniqueToFindDomainRole = roleService.new DefaultTechniqueToFindDomainRole();
-        Class clazz = defaultTechniqueToFindDomainRole.apply("ADMIN");
+        Class clazz = roleService.findDomainRole.apply("ADMIN");
         assertThat(clazz,is(notNullValue()));
         assertThat(clazz.getSimpleName(),is("Admin"));
 
