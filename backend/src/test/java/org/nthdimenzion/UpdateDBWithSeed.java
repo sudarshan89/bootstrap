@@ -16,11 +16,9 @@ public class UpdateDBWithSeed {
 
     /********************* User update section start ****************/
     // The order is very important, add new seed files if required
-    List<File> seeds = ImmutableList.of(new File("src\\main\\resources\\com\\macula\\scripts\\structure.sql"),
-            new File("src\\main\\resources\\com\\macula\\scripts\\seed.sql"),
-            new File("src\\main\\resources\\com\\macula\\scripts\\institutes_data.sql"),
-            new File("src\\main\\resources\\com\\macula\\scripts\\specilaisation.sql"),
-            new File("src\\main\\resources\\com\\macula\\scripts\\chapterTopicSeed.sql"));
+    List<File> seeds = ImmutableList.of(new File("src\\main\\resources\\bootstrap.sql"),
+            new File("src\\main\\resources\\org\\nthdimenzion\\scripts\\seed.sql")
+    );
     /********************* User update section end****************/
 
     public void execute(ApplicationContext context) throws IOException {

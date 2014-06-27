@@ -1,6 +1,5 @@
 package org.nthdimenzion.ddd.domain.service;
 
-import com.google.common.base.Function;
 import com.google.common.base.Preconditions;
 import org.nthdimenzion.crud.ICrud;
 import org.nthdimenzion.ddd.domain.model.PersonRole;
@@ -9,6 +8,8 @@ import org.nthdimenzion.security.domain.IUserLoginRepository;
 import org.nthdimenzion.security.domain.UserLogin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.function.Function;
 
 /**
  * Created by IntelliJ IDEA.
