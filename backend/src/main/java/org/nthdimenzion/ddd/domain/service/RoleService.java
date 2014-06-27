@@ -25,7 +25,17 @@ public class RoleService {
     @Autowired
     private IUserLoginRepository userLoginRepository;
 
-    private Function<String,Class> findDomainRole = new DefaultTechniqueToFindDomainRole();
+    private Function<String,Class> findDomainRole = (String role) -> {
+        DomainRole domainRole = DomainRole.valueOf(role);
+        String className = domainRole.getDomainClass();
+        Class clazz = null;
+        try {
+            clazz = Class.forName(className);
+        } catch (ClassNotFoundException e) {
+            throw new UnsupportedOperationException("Class Not found " + className);
+        }
+        return clazz;
+    };
 
     public <T> T getRolePlayedByUser(String username)  {
         UserLogin userLogin = userLoginRepository.findUserLoginWithUserName(username);
@@ -40,20 +50,5 @@ public class RoleService {
         this.findDomainRole = findDomainRole;
     }
 
-    class DefaultTechniqueToFindDomainRole implements Function<String,Class>{
-
-        @Override
-        public Class apply(String role) {
-            DomainRole domainRole = DomainRole.valueOf(role);
-            String className = domainRole.getDomainClass();
-            Class clazz = null;
-            try {
-                clazz = Class.forName(className);
-            } catch (ClassNotFoundException e) {
-                throw new UnsupportedOperationException("Class Not found " + className);
-            }
-            return clazz;
-        }
-    }
 
 }
