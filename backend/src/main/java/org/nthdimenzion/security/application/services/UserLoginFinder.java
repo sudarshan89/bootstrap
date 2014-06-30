@@ -7,6 +7,8 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
+import java.util.Collections;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -26,6 +28,8 @@ public class UserLoginFinder {
     public String advancedUserAttributesQuery = "select IS_ACCOUNT_NON_LOCKED as isAccountNonLocked from USER_LOGIN " +
             "where USERNAME = :username";
 
+    public String testQuery = "select now()";
+
     @Autowired
     public void setDataSource(DataSource dataSource) {
         this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
@@ -33,5 +37,10 @@ public class UserLoginFinder {
 
     public Map<String,Object> getAdvancedUserAttributes(String username){
         return namedParameterJdbcTemplate.queryForMap(advancedUserAttributesQuery, ImmutableMap.of("username",username));
+    }
+
+    public void sampleTest(){
+        namedParameterJdbcTemplate.queryForObject(testQuery, Collections.emptyMap(),Date.class);
+
     }
 }
