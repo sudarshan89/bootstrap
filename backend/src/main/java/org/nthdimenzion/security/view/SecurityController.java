@@ -41,13 +41,25 @@ public class SecurityController {
 
     @Autowired
     private IUserLoginRepository iUserLoginRepository;
+
+    private final Gson gson = new Gson();
+
     @Autowired
     private ICrud crudDao;
 
     /**
      * Plugin your own implementation here to send out required JSON
      */
-    private Function<UserLogin, JsonObject> createJsonResponseFromCurrentUser = new DefaultJsonResponseForSystemUser();
+    private Function<UserLogin, JsonObject> createJsonResponseFromCurrentUser = (UserLogin userLogin)->{
+        PersonalDetails personalDetails = userLogin.getUserInfo();
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("id", personalDetails.id);
+        jsonObject.addProperty("firstName", personalDetails.firstName);
+        jsonObject.addProperty("middleName", personalDetails.middleName);
+        jsonObject.addProperty("lastName", personalDetails.lastName);
+        jsonObject.addProperty("permissions", gson.toJson(userLogin.getAllPermissions()));
+        return jsonObject;
+    };
 
     @Autowired
     private IAuthentication authentication;
@@ -57,8 +69,6 @@ public class SecurityController {
 
     @Autowired
     private IEncryportDecryptor iEncryportDecryptor;
-
-    private Gson gson = new Gson();
 
     public SecurityController(Function createJsonResponseFromCurrentUser) {
         this.createJsonResponseFromCurrentUser = createJsonResponseFromCurrentUser;
@@ -118,21 +128,6 @@ public class SecurityController {
         userLogin.changePassword(authentication.encryptPassword(changePasswordDto.newPassword));
         crudDao.save(userLogin);
         return Result.Success(ViewSystemMessages.PASSWORD_CHANGED_SUCCESSFULLY.name());
-    }
-
-    private class DefaultJsonResponseForSystemUser implements Function<UserLogin, JsonObject> {
-
-        @Override
-        public JsonObject apply(UserLogin userLogin) {
-            PersonalDetails personalDetails = userLogin.getUserInfo();
-            JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("id", personalDetails.id);
-            jsonObject.addProperty("firstName", personalDetails.firstName);
-            jsonObject.addProperty("middleName", personalDetails.middleName);
-            jsonObject.addProperty("lastName", personalDetails.lastName);
-            jsonObject.addProperty("permissions", gson.toJson(userLogin.getAllPermissions()));
-            return jsonObject;
-        }
     }
 
 }
