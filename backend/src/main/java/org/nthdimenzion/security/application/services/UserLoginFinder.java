@@ -28,7 +28,7 @@ public class UserLoginFinder {
     public String advancedUserAttributesQuery = "select IS_ACCOUNT_NON_LOCKED as isAccountNonLocked from USER_LOGIN " +
             "where USERNAME = :username";
 
-    public String testQuery = "select now()";
+    public String testQuery = "select Date(now())";
 
     @Autowired
     public void setDataSource(DataSource dataSource) {

@@ -13,5 +13,5 @@ class SampleFinderWithDummyQueries {
 
     public static String happy = "Super happyKid";
 
-    public static String niceQuery = "select * from student where id = :id";
+    public static String niceQuery = "select * from admin where id = :id";
 }
