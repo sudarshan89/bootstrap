@@ -59,7 +59,7 @@ public class AuthenticationSuccessHandler extends SavedRequestAwareAuthenticatio
 
         @Override
         public String apply(UserLogin userLogin) {
-            return "";
+            return userLogin.getHomePageView().homepage;
         }
 
     }

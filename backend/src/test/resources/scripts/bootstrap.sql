@@ -141,7 +141,7 @@ CREATE TABLE `userlogin_security_groups` (
   KEY `FK82384FD297B86779` (`USERLOGIN`)
 );
 
-CREATE ALIAS IF NOT EXISTS Date FOR "org.nthdimenzion.userdefinedh2dbfunctions.H2DBFunctions.currentDate";
+CREATE ALIAS IF NOT EXISTS DATE FOR "org.nthdimenzion.userdefinedh2dbfunctions.H2DBFunctions.currentDate";
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

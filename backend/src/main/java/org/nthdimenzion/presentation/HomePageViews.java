@@ -7,5 +7,12 @@ package org.nthdimenzion.presentation;
  * Time: 1:04 PM
  */
 public enum HomePageViews {
-    STUDENT_HOME_PAGE, ADMIN_HOME_PAGE, SENIOR_FACULTY_HOME_PAGE, JUNIOR_FACULTY_HOME_PAGE, MEDICAL_ADMIN_HOME_PAGE,ACTIVATOR_HOME_PAGE;
+
+    ADMIN_HOME_PAGE("/admin.html#homepage");
+
+    public final String homepage;
+
+    HomePageViews(String homepage) {
+        this.homepage = homepage;
+    }
 }
