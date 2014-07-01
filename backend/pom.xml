@@ -560,7 +560,7 @@
 
     <scm>
         <tag>HEAD</tag>
-        <url>https://github.com/sudarshan89/bootstrap.git</url>
+        <url>scm:git:https://github.com/sudarshan89/bootstrap.git</url>
     </scm>
 
     <pluginRepositories>
