@@ -522,6 +522,26 @@
                     <shortRevisionLength>7</shortRevisionLength>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <connection>scm:git:https://github.com/sudarshan89/bootstrap.git</connection>
+                    <developerConnection>scm:git:https://github.com/sudarshan89/bootstrap.git</developerConnection>
+                    <url>scm:git:https://github.com/sudarshan89/bootstrap.git</url>
+                    <pushChanges>false</pushChanges>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-scm-plugin</artifactId>
+                        <version>1.9</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
         </plugins>
 
     </build>
@@ -559,10 +579,10 @@
     </repositories>
 
     <scm>
-        <tag>HEAD</tag>
+        <tag>master</tag>
         <connection>scm:git:https://github.com/sudarshan89/bootstrap.git</connection>
         <developerConnection>scm:git:https://github.com/sudarshan89/bootstrap.git</developerConnection>
-        <url>https://github.com/sudarshan89/bootstrap.git</url>
+        <url>scm:git:https://github.com/sudarshan89/bootstrap.git</url>
     </scm>
 
     <pluginRepositories>
