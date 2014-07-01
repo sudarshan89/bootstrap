@@ -24,7 +24,7 @@
     <bean id="authentication" class="org.nthdimenzion.security.application.services.AuthenticationStub"/>
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <property name="persistenceUnitName" value="nthdimenzion"/>
+        <property name="persistenceUnitName" value="testnthdimenzion"/>
         <property name="packagesToScan" value="org.nthdimenzion.ddd.domain,
                                              org.nthdimenzion.security.domain"/>
         <property name="jpaVendorAdapter">
@@ -34,7 +34,7 @@
                 <property name="showSql" value="true"/>
             </bean>
         </property>
-        <property name="persistenceXmlLocation" value = "classpath:/META-INF/persistence.xml"/>
+        <property name="persistenceXmlLocation" value = "classpath:/META-INF/testpersistence.xml"/>
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
