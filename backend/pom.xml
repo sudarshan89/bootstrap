@@ -522,9 +522,7 @@
                     <shortRevisionLength>7</shortRevisionLength>
                 </configuration>
             </plugin>
-
         </plugins>
-
 
     </build>
 
@@ -549,8 +547,6 @@
     </profiles>
 
     <repositories>
-
-
         <repository>
             <id>central</id>
             <name>Maven Repository Switchboard</name>
@@ -560,9 +556,12 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
-
-
     </repositories>
+
+    <scm>
+        <tag>HEAD</tag>
+        <url>https://github.com/sudarshan89/bootstrap.git</url>
+    </scm>
 
     <pluginRepositories>
         <pluginRepository>
