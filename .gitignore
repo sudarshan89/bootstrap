@@ -219,6 +219,6 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 *.db
+bower_components/
+node_modules/
 
-*.db
-*.db

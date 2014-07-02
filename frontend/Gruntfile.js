@@ -387,6 +387,8 @@ module.exports = function (grunt) {
     'karma'
   ]);
 
+
+
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
