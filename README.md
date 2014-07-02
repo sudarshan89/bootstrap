@@ -24,6 +24,18 @@ Simple functionality like
 
 ##### /frontend
 
+ A seed frontend package structure built with yoman. Used angular-generator to create it.
+ Use the below command in console(root directory).To install the dependency
+ 
+						npm install
+                        bower install
+						
+A simple login module has been added. On click of login button on the right of the window.
+A login popup will appear.Enter the below credential.
+
+Username : admin
+Password : admin
+
 Will be coming in soon
 	
 	
