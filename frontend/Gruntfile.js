@@ -32,7 +32,7 @@ module.exports = function (grunt) {
         watch: {
             bower: {
                 files: ['bower.json'],
-                tasks: ['newer:copy:bower','wiredep']
+                tasks: ['newer:copy:bower','newer:copy:adminhtml','wiredep']
             },
             js: {
                 files: ['<%= yeoman.app %>/scripts/**/*.js'],
@@ -87,7 +87,7 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: '.tmp/styles/',
                     src: '{,*/}*.css',
-                    dest: '.tmp/styles/'
+                    dest: '<%= yeoman.webappDist %>/styles/'
                 }]
             }
         },
@@ -233,7 +233,7 @@ module.exports = function (grunt) {
                     cwd: '<%= yeoman.app %>',
                     dest:'<%= yeoman.webappDist %>',
                     src:[
-                        '**/*.*'
+                        '**','!styles/*.css'
                     ]
                 },{
                     expand:true,
@@ -255,15 +255,34 @@ module.exports = function (grunt) {
                   expand:true,
                   dot:true,
                   dest:'<%= yeoman.webappDist %>',
-                  src:['bower_components/**/*.*','<%= yeoman.app %>/admin.html']
+                  src:['bower_components/**/*.*']
               }]
+            },
+            adminhtml:{
+                files:[{
+                    expand:true,
+                    dot:true,
+                    cwd:'<%= yeoman.app %>',
+                    dest:'<%= yeoman.webappDist %>',
+                    src:['admin.html']
+                }]
             },
             js:{
                 files:[{
                     expand:true,
                     dot:true,
+                    cwd:'<%= yeoman.app %>',
                     dest:'<%= yeoman.webappDist %>',
-                    src:['<%= yeoman.app %>/scripts/**/*.*']
+                    src:['scripts/**/*.*']
+                }]
+            },
+            html:{
+                files:[{
+                    expand:true,
+                    dot:true,
+                    cwd:'<%= yeoman.app %>',
+                    dest:'<%= yeoman.webappDist %>',
+                    src:['views/**/*.*']
                 }]
             },
             dist: {
@@ -322,8 +341,17 @@ module.exports = function (grunt) {
         if(target === 'dev'){
           grunt.task.run([
               'clean:dev',
-              'copy:dev'
+              'copy:dev',
+              'copy:styles',
+              'autoprefixer',
+              'watch'
           ]);
+        }else if(target === 'prod'){
+            grunt.task.run([
+                'clean:dist',
+                'clean:dev',
+                'copy:prod'
+            ]);
         }
     });
 
