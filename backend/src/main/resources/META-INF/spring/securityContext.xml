@@ -26,16 +26,13 @@
             <security:concurrency-control max-sessions="1" error-if-maximum-exceeded="false" />
         </security:session-management>
         -->
-        <security:intercept-url pattern="/index.html" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-        <security:intercept-url pattern="/signup.html" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-        <security:intercept-url pattern="/upload.html" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-        <security:intercept-url pattern="/nonsecure/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <!--<security:intercept-url pattern="/signup.html" access="IS_AUTHENTICATED_ANONYMOUSLY" />-->
+        <security:intercept-url pattern="/views/login/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
         <security:intercept-url pattern="/*.html" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 
         <security:intercept-url pattern="/*.css" access="IS_AUTHENTICATED_ANONYMOUSLY" />
         <security:intercept-url pattern="/*.js" access="IS_AUTHENTICATED_ANONYMOUSLY" />
         <security:intercept-url pattern="/images/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-
 
 
         <security:intercept-url pattern="/api/security/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
@@ -44,8 +41,8 @@
 
 
         <security:intercept-url pattern="/api/**" access="IS_AUTHENTICATED_REMEMBERED" />
-
         <security:intercept-url pattern="/**/*.html" access="IS_AUTHENTICATED_REMEMBERED" />
+
         <security:form-login login-page="/index.html" always-use-default-target="true" login-processing-url="/login"
                              authentication-failure-url="/app/login.html?login_error=1"
                              authentication-success-handler-ref="authenticationSuccessHandler"

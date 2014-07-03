@@ -221,4 +221,6 @@ pip-log.txt
 *.db
 bower_components/
 node_modules/
-
+backend/src/main/webapp
+backend/mem.h2.db
+backend/src/test/java/org/nthdimenzion/PasswordHelper.java

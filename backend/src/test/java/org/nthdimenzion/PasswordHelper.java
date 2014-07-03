@@ -15,8 +15,7 @@ public class PasswordHelper {
 
     static ShaPasswordEncoder encoder = new ShaPasswordEncoder();
     public static void main(String a[]){
-        System.out.println("Macula password " + encoder.encodePassword("activator","macula"));
-        System.out.println(new Date(1394097480000l));
+        System.out.println("Macula password " + encoder.encodePassword("admin","bootstrap"));
 
     }
 
