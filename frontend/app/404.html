@@ -1,157 +1,101 @@
-<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Page Not Found :(</title>
-    <style>
-      ::-moz-selection {
-        background: #b3d4fc;
-        text-shadow: none;
-      }
-
-      ::selection {
-        background: #b3d4fc;
-        text-shadow: none;
-      }
-
-      html {
-        padding: 30px 10px;
+<head>
+    <title>Something Wrong!!!</title>
+</head>
+<body>
+<style>
+    .wrapper{
+        -webkit-perspective:none;
+        perspective:none;
+        -webkit-perspective-origin: 0 0;
+        perspective-origin: 0 0;
+        -webkit-perspective: none;
+        -webkit-perspective-origin: 0 0;
+    }
+    @-webkit-keyframes spin {
+        from { -webkit-transform: rotateY(0); transform: rotateY(0); }
+        to { -webkit-transform: rotateY(360deg); transform: rotateY(360deg); }
+    }
+    @keyframes spin {
+        from { -webkit-transform: rotateY(0); transform: rotateY(0); }
+        to { -webkit-transform: rotateY(360deg); transform: rotateY(360deg); }
+    }
+    .cube {
+        position: relative;
+        width: 200px;
+        margin: 0 auto;
+        -webkit-transform-style: preserve-3d;
+        -webkit-animation: spin 5s infinite linear;
+        -moz-transform-style: preserve-3d;
+        -moz-animation: spin 5s infinite linear;
+        -ms-transform-style: preserve-3d;
+        -ms-animation: spin 5s infinite linear;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-animation: spin 5s infinite linear;
+        animation: spin 5s infinite linear;
+    }
+    .cube div {
+        position: absolute;
+        width: 200px;
+        height: 200px;
         font-size: 20px;
-        line-height: 1.4;
-        color: #737373;
-        background: #f0f0f0;
-        -webkit-text-size-adjust: 100%;
-        -ms-text-size-adjust: 100%;
-      }
-
-      html,
-      input {
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      }
-
-      body {
-        max-width: 500px;
-        _width: 500px;
-        padding: 30px 20px 50px;
-        border: 1px solid #b3b3b3;
-        border-radius: 4px;
-        margin: 0 auto;
-        box-shadow: 0 1px 10px #a7a7a7, inset 0 1px 0 #fff;
-        background: #fcfcfc;
-      }
-
-      h1 {
-        margin: 0 10px;
-        font-size: 50px;
         text-align: center;
-      }
+        line-height: 200px;
+        color:rgba(0,0,0,0.5);
+        font-family: sans-serif;
+        text-transform: uppercase;
+    }
 
-      h1 span {
-        color: #bbb;
-      }
+    .back {
+        -webkit-transform :translateZ(-100px) rotateY(180deg);
+        transform: translateZ(-100px) rotateY(180deg);
+    }
+    .right {
+        -webkit-transform-origin:top right;
+        -webkit-transform :rotateY(-270deg) translateX(100px);
+        transform: rotateY(-270deg) translateX(100px);
+        -webkit-transform-origin: top right;
+        transform-origin: top right;
+    }
+    .left {
+        -webkit-transform-origin:center left;
+        -webkit-transform :rotateY(270deg) translateX(-100px);
+        transform: rotateY(270deg) translateX(-100px);
+        -webkit-transform-origin: center left;
+        transform-origin: center left;
+    }
+    .top {
+        -webkit-transform-origin:top center;
+        -webkit-transform :rotateX(-90deg) translateY(-100px);
+        transform: rotateX(-90deg) translateY(-100px);
+        -webkit-transform-origin: top center;
+        transform-origin: top center;
+    }
+    .bottom {
+        -webkit-transform-origin:bottom center;
+        -webkit-transform :rotateX(90deg) translateY(100px);
+        transform: rotateX(90deg) translateY(100px);
+        -webkit-transform-origin: bottom center;
+        transform-origin: bottom center;
+    }
+    .front {
+        -webkit-transform :translateZ(100px);
+        transform: translateZ(100px);
+    }
+</style>
 
-      h3 {
-        margin: 1.5em 0 0.5em;
-      }
 
-      p {
-        margin: 1em 0;
-      }
-
-      ul {
-        padding: 0 0 0 40px;
-        margin: 1em 0;
-      }
-
-      .container {
-        max-width: 380px;
-        _width: 380px;
-        margin: 0 auto;
-      }
-
-      /* google search */
-
-      #goog-fixurl ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      #goog-fixurl form {
-        margin: 0;
-      }
-
-      #goog-wm-qt,
-      #goog-wm-sb {
-        border: 1px solid #bbb;
-        font-size: 16px;
-        line-height: normal;
-        vertical-align: top;
-        color: #444;
-        border-radius: 2px;
-      }
-
-      #goog-wm-qt {
-        width: 220px;
-        height: 20px;
-        padding: 5px;
-        margin: 5px 10px 0 0;
-        box-shadow: inset 0 1px 1px #ccc;
-      }
-
-      #goog-wm-sb {
-        display: inline-block;
-        height: 32px;
-        padding: 0 10px;
-        margin: 5px 0 0;
-        white-space: nowrap;
-        cursor: pointer;
-        background-color: #f5f5f5;
-        background-image: -webkit-linear-gradient(rgba(255,255,255,0), #f1f1f1);
-        background-image: -moz-linear-gradient(rgba(255,255,255,0), #f1f1f1);
-        background-image: -ms-linear-gradient(rgba(255,255,255,0), #f1f1f1);
-        background-image: -o-linear-gradient(rgba(255,255,255,0), #f1f1f1);
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        *overflow: visible;
-        *display: inline;
-        *zoom: 1;
-      }
-
-      #goog-wm-sb:hover,
-      #goog-wm-sb:focus {
-        border-color: #aaa;
-        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-        background-color: #f8f8f8;
-      }
-
-      #goog-wm-qt:hover,
-      #goog-wm-qt:focus {
-        border-color: #105cb6;
-        outline: 0;
-        color: #222;
-      }
-
-      input::-moz-focus-inner {
-        padding: 0;
-        border: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1>Not found <span>:(</span></h1>
-      <p>Sorry, but the page you were trying to view does not exist.</p>
-      <p>It looks like this was the result of either:</p>
-      <ul>
-        <li>a mistyped address</li>
-        <li>an out-of-date link</li>
-      </ul>
-      <script>
-        var GOOG_FIXURL_LANG = (navigator.language || '').slice(0,2),GOOG_FIXURL_SITE = location.host;
-      </script>
-      <script src="//linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js"></script>
+<div class="wrapper">
+    <div class="cube">
+        <div class="front">Something</div>
+        <div class="back">Wrong</div>
+        <div class="left">IS</div>
+        <div class="right">With App</div>
     </div>
-  </body>
+</div>
+<!--<div style="margin: auto;width: 500px;background-color: #CCCCCC;min-height: 650px;border-radius: 7px">
+    <img src="images/404.jpg">
+</div>-->
+</body>
 </html>

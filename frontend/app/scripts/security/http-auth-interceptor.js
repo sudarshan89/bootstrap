@@ -1,18 +1,25 @@
 angular.module('http-auth-interceptor',[])
-    .factory('authService', ['$http','$rootScope', function($http,$rootScope) {
+    .factory('authService', ['$http','$rootScope','$window', function($http,$rootScope,$window) {
         return {
             currentUser : undefined,
             login: function(data) {
                 var payload = $.param({ j_username: data.j_username, j_password: data.j_password });
                 var config = { headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}};
-                var request = $http.post('/login', payload, config);
-                return request.then(function (response) {
+                var request = $http.post('/login', payload, config).success(function(response, status, headers, config){
+                    $window.location.replace(headers.homepage);
+                }).error(function(response, status, headers, config){
+                    $window.location.replace('404.html');
+                });
+
+                /*return request.then(function (response) {
+                    console.log(response);
+                    //$window.location.replace('main.html#/admin');
                     this.currentUser = response.data.currentUser;
                     if(!this.currentUser){
                         $rootScope.$broadcast('auth-invalid-credentials',response);
                     }
                     return response;
-                });
+                });*/
             },
             requestCurrentUser: function () {
                 return $http.post('auth/current-user').then(function (response) {
