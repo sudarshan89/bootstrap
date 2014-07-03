@@ -44,7 +44,7 @@ module.exports = function (grunt) {
             },
             html :{
                 files: ['<%= yeoman.app %>/view/**/*.html'],
-                tasks: ['newer:copy:styles']
+                tasks: ['newer:copy:html']
             }
         },
 
@@ -98,7 +98,7 @@ module.exports = function (grunt) {
                 cwd: '<%= yeoman.app %>'
             },
             app: {
-                src: ['<%= yeoman.app %>/views/main.html'],
+                src: ['<%= yeoman.app %>/views/admin.html'],
                 ignorePath:  /..\//
             }
         },
@@ -119,7 +119,7 @@ module.exports = function (grunt) {
         // concat, minify and revision files. Creates configurations in memory so
         // additional tasks can operate on them
         useminPrepare: {
-            html: '<%= yeoman.app %>/main.html',
+            html: '<%= yeoman.app %>/admin.html',
             options: {
                 dest: '<%= yeoman.dist %>',
                 flow: {
@@ -249,6 +249,22 @@ module.exports = function (grunt) {
                    dest:'<%= yeoman.webappDist %>',
                    src:['<%= yeoman.dist %>/**/*.*']
                }]
+            },
+            bower:{
+              files:[{
+                  expand:true,
+                  dot:true,
+                  dest:'<%= yeoman.webappDist %>',
+                  src:['bower_components/**/*.*','<%= yeoman.app %>/admin.html']
+              }]
+            },
+            js:{
+                files:[{
+                    expand:true,
+                    dot:true,
+                    dest:'<%= yeoman.webappDist %>',
+                    src:['<%= yeoman.app %>/scripts/**/*.*']
+                }]
             },
             dist: {
                 files: [{
