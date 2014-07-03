@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular.module('frontend',['mgcrea.ngStrap','http-auth-interceptor','content-mocks'])
+angular.module('frontend',['mgcrea.ngStrap','http-auth-interceptor'])
     .controller('loginCtrl',['$scope','$modal','authService','$alert',function($scope,$modal,authService,$alert){
         var modal = undefined;
         var alert = undefined;
