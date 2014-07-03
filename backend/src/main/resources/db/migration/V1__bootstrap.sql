@@ -147,8 +147,16 @@ CREATE TABLE `userlogin_security_groups` (
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 INSERT INTO security_permission (ID, DESCRIPTION, PERMISSION_ID ) VALUES (1,'ROLE_ADMIN','ROLE_ADMIN' );
+
 INSERT INTO security_group (ID, NAME ) VALUES (1,'ADMIN' );
+
 INSERT INTO securitygroup_security_permissions (SECURITYGROUP, SECURITYPERMISSIONS )VALUES (1,1);
-insert into `person_role` (`ID`, `DOMAIN_ROLE`, `DATE_OF_BIRTH`, `EMAIL`, `GENDER`, `FIRST_NAME`, `LAST_NAME`, `MIDDLE_NAME`) values('1','ADMIN',NULL,'admin@gmail.com',NULL,'The Administrator',NULL,NULL);
+
+INSERT INTO `person_role` (`ID`, `DOMAIN_ROLE`, `DATE_OF_BIRTH`, `EMAIL`, `GENDER`, `FIRST_NAME`, `LAST_NAME`, `MIDDLE_NAME`) VALUES('1','ADMIN',NULL,'admin@gmail.com',NULL,'The Administrator',NULL,NULL);
+
 INSERT INTO user_login (ID, HOME_PAGE_VIEW, IS_ENABLED, NUMBER_OF_FAILED_LOGIN_ATTEMPTS,
                         PASSWORD, USERNAME,IS_ACCOUNT_NON_LOCKED,PERSONROLE ) VALUES (1,'ADMIN_HOME_PAGE',1,0,'66776099aa6cdfb6784c9fc9c2badff9090b3e6d','admin@gmail.com',1,'1');
+
+INSERT INTO `userlogin_security_groups` (`USERLOGIN`, `SECURITYGROUPS`) VALUES(1, 1) ;
+
+INSERT INTO `admin` (`ID`)  VALUES (1) ;

@@ -43,7 +43,9 @@ public class AuthenticationSuccessHandler extends SavedRequestAwareAuthenticatio
         setSystemUserInSession(request, userDetails);
         Function<UserLogin,String> getHomePageForLoggedInUser = new DefaultHomePageForLoggedInUser();
         String homepageUrl = getHomePageForLoggedInUser.apply(userLogin);
-        super.setDefaultTargetUrl(homepageUrl);
+        response.addHeader("homepage",homepageUrl);
+        response.setStatus(HttpServletResponse.SC_OK);
+        super.onAuthenticationSuccess(request,response,auth);
     }
 
     private void setSystemUserInSession(HttpServletRequest request, UserDetails userDetails) {

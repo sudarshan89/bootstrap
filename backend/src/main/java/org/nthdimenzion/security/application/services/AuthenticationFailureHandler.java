@@ -1,5 +1,7 @@
 package org.nthdimenzion.security.application.services;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
@@ -68,15 +70,13 @@ public class AuthenticationFailureHandler extends SimpleUrlAuthenticationFailure
                 authenticationService.failedLoginAttempt(getUserName(authenticationException));
             }
         }
-        AuthenticationFailureErrorCodes authenticationFailureErrorCode = transformExceptionIntoErrorCode
-                (authenticationException);
-        super.onAuthenticationFailure(request,response,authenticationException);
-        /*JsonObject jsonReply =  new JsonObject();
+        AuthenticationFailureErrorCodes authenticationFailureErrorCode = transformExceptionIntoErrorCode(authenticationException);
+        JsonObject jsonReply =  new JsonObject();
         jsonReply.addProperty("authError",authenticationFailureErrorCode.getDescription());
         final String reply =new Gson().toJson(jsonReply);
-        response.setStatus(500);
+        response.setStatus(401);
         response.getWriter().print(reply);
-        response.getWriter().flush();*/
+        super.onAuthenticationFailure(request,response,authenticationException);
     }
 
     private String getUserName(AuthenticationException authenticationException) {
