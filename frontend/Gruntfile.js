@@ -43,7 +43,7 @@ module.exports = function (grunt) {
                 tasks: ['newer:copy:styles', 'autoprefixer']
             },
             html :{
-                files: ['<%= yeoman.app %>/view/**/*.html'],
+                files: ['<%= yeoman.app %>/views/**/*.html'],
                 tasks: ['newer:copy:html']
             }
         },
