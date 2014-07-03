@@ -3,7 +3,7 @@ angular.module('http-auth-interceptor',[])
         return {
             currentUser : undefined,
             login: function(data) {
-                var request = $http.post('auth/login', data);
+                var request = $http.post('/login', data);
                 return request.then(function (response) {
                     this.currentUser = response.data.currentUser;
                     if(!this.currentUser){
