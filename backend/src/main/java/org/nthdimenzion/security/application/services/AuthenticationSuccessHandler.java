@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 
@@ -43,9 +44,8 @@ public class AuthenticationSuccessHandler extends SavedRequestAwareAuthenticatio
         setSystemUserInSession(request, userDetails);
         Function<UserLogin,String> getHomePageForLoggedInUser = new DefaultHomePageForLoggedInUser();
         String homepageUrl = getHomePageForLoggedInUser.apply(userLogin);
-        response.addHeader("homepage",homepageUrl);
-        response.setStatus(HttpServletResponse.SC_OK);
-        super.onAuthenticationSuccess(request,response,auth);
+        setDefaultTargetUrl(homepageUrl);
+        super.onAuthenticationSuccess(request, response, auth);
     }
 
     private void setSystemUserInSession(HttpServletRequest request, UserDetails userDetails) {
