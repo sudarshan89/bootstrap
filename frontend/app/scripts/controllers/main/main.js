@@ -9,7 +9,7 @@
  */
 angular.module("app-name",['ngRoute','http-auth-interceptor','entrancebook.directives'])
     .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('homepage',
+        $routeProvider.when('/homepage',
             {templateUrl: '../views/dashboard.html', controller: 'MainCtrl'
             }
         )
