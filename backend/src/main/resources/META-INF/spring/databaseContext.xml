@@ -23,7 +23,12 @@
         <property name="statementsCacheSize" value="20"/>
     </bean>
 
-    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+    <bean id="flyway" class="org.flywaydb.core.Flyway" init-method="migrate">
+        <property name="dataSource" ref="dataSourceRef"/>
+        <property name="initOnMigrate" value="true"/>
+    </bean>
+
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" depends-on="flyway">
         <property name="persistenceUnitName" value="nthdimenzion"/>
         <property name="packagesToScan" value="org.nthdimenzion.ddd.domain,
                                              org.nthdimenzion.security.domain"/>
