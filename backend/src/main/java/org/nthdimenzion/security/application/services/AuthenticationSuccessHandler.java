@@ -1,7 +1,6 @@
 package org.nthdimenzion.security.application.services;
 
 
-import com.google.common.base.Function;
 import org.nthdimenzion.ddd.infrastructure.LoggedInUserHolder;
 import org.nthdimenzion.object.utils.Constants;
 import org.nthdimenzion.security.domain.IUserLoginRepository;
@@ -11,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 
@@ -19,6 +17,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.function.Function;
 
 public class AuthenticationSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler implements LogoutSuccessHandler {
 
@@ -42,8 +41,7 @@ public class AuthenticationSuccessHandler extends SavedRequestAwareAuthenticatio
         final UserLogin userLogin = userLoginRepository.findUserLoginWithUserName(username);
         UserDetails userDetails = userService.loadUserByUsername(username);
         setSystemUserInSession(request, userDetails);
-        Function<UserLogin,String> getHomePageForLoggedInUser = new DefaultHomePageForLoggedInUser();
-        String homepageUrl = getHomePageForLoggedInUser.apply(userLogin);
+        String homepageUrl = homePageLocatorForLoggedInUser.apply(userLogin);
         setDefaultTargetUrl(homepageUrl);
         super.onAuthenticationSuccess(request, response, auth);
     }
@@ -53,17 +51,13 @@ public class AuthenticationSuccessHandler extends SavedRequestAwareAuthenticatio
         request.getSession().setAttribute(Constants.LOGGED_IN_USER, systemUser);
     }
 
-
-    /***
-     * Override this class, in a application specific way
-     */
-    private class DefaultHomePageForLoggedInUser implements Function<UserLogin,String>{
-
-        @Override
-        public String apply(UserLogin userLogin) {
-            return userLogin.getHomePageView().homepage;
-        }
-
+    @Autowired(required = false)
+    public void setHomePageLocatorForLoggedInUser(Function<UserLogin, String> homePageLocatorForLoggedInUser) {
+        this.homePageLocatorForLoggedInUser = homePageLocatorForLoggedInUser;
     }
+
+    private Function<UserLogin,String> homePageLocatorForLoggedInUser = (userLogin)-> userLogin.getHomePageView().homepage;
+
+
 
 }
