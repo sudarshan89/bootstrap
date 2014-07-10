@@ -34,11 +34,11 @@ NPM(Bundled with Node)
 
 Grunt-cli v0.1.13+
 
-..* Use _npm install -g grunt-cli_
+* Use _npm install -g grunt-cli_
 
 Bower v1.3.5+
 
-..* Use _npm install -g bower_
+* Use _npm install -g bower_
  
  Use the below command in console(root directory).To install the dependency
  
