@@ -359,11 +359,18 @@
         <!-- Quartz end -->
 
         <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>3.0</version>
+        </dependency>
+
+        <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
             <scope>runtime</scope>
         </dependency>
+
         <dependency>
             <groupId>uk.ac.shef.wit</groupId>
             <artifactId>simmetrics</artifactId>
@@ -455,17 +462,6 @@
                     <excludes>
                         <exclude>**/*Acceptance*.java</exclude>
                     </excludes>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.flywaydb</groupId>
-                <artifactId>flyway-maven-plugin</artifactId>
-                <version>3.0</version>
-                <configuration>
-                    <url>${jdbc.url}</url>
-                    <user>${jdbc.username}</user>
-                    <password>${jdbc.password}</password>
                 </configuration>
             </plugin>
 

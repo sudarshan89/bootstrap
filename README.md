@@ -30,12 +30,14 @@ Simple functionality like
  
 						npm install
                         bower install
-						
+		
+Run the grunt play:dev command to package the front end and deploy it on the server.
+		
 A simple login module has been added. Click on the "Test Drive" button.
 
 A login popup will appear.Enter the below credential.
 
-Username : admin
+Username : admin@gmail.com
 
 Password : admin
 
