@@ -84,7 +84,7 @@ module.exports = function (grunt) {
         // Add vendor prefixed styles
         autoprefixer: {
             options: {
-                browsers: ['last 2 version']
+                browsers: ['last 4 version']
             },
             dist: {
                 files: [{
@@ -403,14 +403,35 @@ module.exports = function (grunt) {
         karma: {
             unit: {
                 configFile: 'test/karma.conf.js',
-                singleRun: true
+                singleRun: false
+            }
+        },
+
+        jshint: {
+            options: {
+                jshintrc: '.jshintrc',
+                reporter: require('jshint-stylish')
+            },
+            dev: {
+                src: [
+                    'Gruntfile.js',
+                    '<%= yeoman.app %>/scripts/**/*.js'
+                ]
+            },
+            test: {
+                options: {
+                    jshintrc: 'test/.jshintrc'
+                },
+                src: ['test/spec/**/*.js']
             }
         }
+
     });
 
     grunt.registerTask('play','',function(target){
         if(target === 'dev'){
           grunt.task.run([
+              'jshint:dev',
               'clean:dev',
               'copy:dev',
               'copy:styles',
@@ -451,6 +472,7 @@ module.exports = function (grunt) {
         /*'clean:server',
         'concurrent:test',
         'autoprefixer',*/
+        'jshint:test',
         'connect:test',
         'karma'
     ]);
