@@ -1,29 +1,9 @@
+'use strict';
 angular.module('http-auth-interceptor',[])
-    .factory('authService', ['$http','$rootScope','$window', function($http,$rootScope,$window) {
+    .factory('authService', ['$http','$rootScope','$window', function($http) {
         return {
-            currentUser : undefined,
-            login: function(data) {
-                var payload = $.param({ j_username: data.j_username, j_password: data.j_password });
-                var config = { headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}};
-                var request = $http.post('/login', payload, config).success(function(response, status, headers, config){
-                    $window.location.replace(headers.homepage);
-                }).error(function(response, status, headers, config){
-                    $window.location.replace('404.html');
-                });
-
-                /*return request.then(function (response) {
-                    console.log(response);
-                    //$window.location.replace('main.html#/admin');
-                    this.currentUser = response.data.currentUser;
-                    if(!this.currentUser){
-                        $rootScope.$broadcast('auth-invalid-credentials',response);
-                    }
-                    return response;
-                });*/
-            },
             requestCurrentUser: function () {
-                return $http.post('auth/current-user').then(function (response) {
-                    this.currentUser = response.data.currentUser;
+                return $http.get('api/security/current-user').then(function (response) {
                     return response;
                 });
             }
@@ -39,7 +19,7 @@ angular.module('http-auth-interceptor',[])
         $httpProvider.interceptors.push(['$rootScope', '$q', function($rootScope, $q) {
             return {
                 responseError: function(rejection) {
-                    if (rejection.status === 401 && !rejection.config.ignoreAuthModule) {
+                    if ((rejection.status === 401 || rejection.status === 500) && !rejection.config.ignoreAuthModule) {
                         var deferred = $q.defer();
                         $rootScope.$broadcast('auth-invalid-user', rejection);
                         return deferred.promise;
