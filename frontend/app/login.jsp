@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
 </head>
 <title>Bootstrap</title>
 <body>
@@ -15,7 +16,7 @@
                     <h3 class="panel-title">Why you are here?</h3>
                 </div>
                 <div class="panel-body">
-                   You are In this page since you have entered a wrong credentials in the login screen.
+                    You are In this page since you have entered a wrong credentials in the login screen.
                     <br>
                     Try entering correct login username and password to go to home page.
                 </div>
