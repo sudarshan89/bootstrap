@@ -1,16 +1,19 @@
+'use strict';
 angular.module('security.authorization',['http-auth-interceptor'])
     .factory('securityAuthorization',
-        ['authService','$rootScope', function(authService,$rootScope) {
+    ['authService','$rootScope','$q', function(authService,$rootScope,$q) {
         return {
-            isAuthenticated : function () {
-                return !!authService.currentUser;
-            },
             requireAuthenticatedUser : function (userInfo) {
-                 authService.requestCurrentUser().then(function (response) {
-                    if (userInfo !== response.data.currentUser) {
-                        $rootScope.$broadcast('auth-invalid-user',userInfo);
+                var deffered = $q.defer();
+                authService.requestCurrentUser().then(function (response) {
+                    if (userInfo === response.data.permissions) {
+                        deffered.resolve();
+                    }else{
+                        deffered.reject();
+                        $rootScope.$broadcast('auth-invalid-user',"Unauthorized user");
                     }
                 });
+                return deffered.promise;
             }
         };
     }]);
