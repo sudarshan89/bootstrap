@@ -7,14 +7,18 @@
  * # MainCtrl
  * Controller of the seedApp
  */
-angular.module("app-name",['ngRoute','http-auth-interceptor','entrancebook.directives'])
+angular.module("app-name",['ngRoute','http-auth-interceptor','entrancebook.directives','security.authorization'])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/homepage',
-            {templateUrl: '../views/dashboard.html', controller: 'MainCtrl'
+            {templateUrl: '../views/dashboard.html', controller: 'MainCtrl',
+                resolve:{
+                    isAuthenticated: ['securityAuthorization',function(securityAuthorization){
+                        return securityAuthorization.requireAuthenticatedUser('["ROLE_ADMIN1"]');
+                    }]
+                }
             }
-        )
+        );
     }])
-    .controller('MainCtrl', function ($scope,$modal) {
-
-    })
+    .controller('MainCtrl', function () {
+    });
 
