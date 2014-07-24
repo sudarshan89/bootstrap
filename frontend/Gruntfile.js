@@ -148,7 +148,7 @@ module.exports = function (grunt) {
 
         // Performs rewrites based on filerev and the useminPrepare configuration
         usemin: {
-            html: ['<%= yeoman.dist %>/**/*.html'],
+            html: ['<%= yeoman.dist %>/**/*.html','<%= yeoman.dist %>/*.jsp'],
             css: ['<%= yeoman.dist %>/styles/**/*.css'],
             options: {
                 assetsDirs: ['<%= yeoman.dist %>','<%= yeoman.dist %>/images']
@@ -317,6 +317,7 @@ module.exports = function (grunt) {
                         '*.{ico,png,txt}',
                         '.htaccess',
                         '*.html',
+                        '*.jsp',
                         'views/{,*/}*.html',
                         'images/{,*/}*.{webp}',
                         'fonts/*'
