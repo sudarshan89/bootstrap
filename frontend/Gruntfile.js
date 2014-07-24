@@ -78,6 +78,14 @@ module.exports = function (grunt) {
                         '!<%= yeoman.dist %>/.git*'
                     ]
                 }]
+            },
+            jsp:{
+                files:[{
+                  src:[
+                      '<%= yeoman.dist %>/*.jsp'
+                  ]
+                }
+                ]
             }
         },
 
@@ -260,7 +268,7 @@ module.exports = function (grunt) {
                    dot:true,
                    cwd:'<%= yeoman.dist %>',
                    dest:'<%= yeoman.webappDist %>',
-                   src:['**']
+                   src:['*.jsp']
                }]
             },
             bower:{
@@ -444,7 +452,8 @@ module.exports = function (grunt) {
                 'clean:dist',
                 'clean:dev',
                 'build',
-                'copy:prod'
+                'copy:prod',
+                'clean:jsp'
             ]);
         }
     });
