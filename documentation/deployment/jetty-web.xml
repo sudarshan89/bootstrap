@@ -1,0 +1,48 @@
+<?xml version="1.0"  encoding="ISO-8859-1"?>
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://jetty.eclipse.org/configure.dtd">
+
+<Configure class="org.eclipse.jetty.webapp.WebAppContext">
+
+<!-- Uncomment this for production deployments where session persistence is needed -->
+
+
+  <Get name="server">
+    <Get id="jdbcIdMgr" name="sessionIdManager"/>
+ </Get>
+ 
+ <Set name="sessionHandler">
+    <New class="org.eclipse.jetty.server.session.SessionHandler">
+      <Arg>
+        <New class="org.eclipse.jetty.server.session.JDBCSessionManager">
+          <Set name="sessionIdManager">
+            <Ref id="jdbcIdMgr"/>
+          </Set>
+        </New>
+      </Arg>
+    </New>
+ </Set>
+
+
+    <!-- Add the below section into {jettyserver}\etc\jetty.xml -->
+    <!-- http://wiki.eclipse.org/Jetty/Howto/Configure_mod_proxy -->
+    <!-- =========================================================== -->
+    <!-- Session Replications                                        -->
+    <!-- =========================================================== -->
+    <!--<Set name="sessionIdManager">
+        <New id="jdbcidmgr" class="org.eclipse.jetty.server.session.JDBCSessionIdManager">
+            <Arg><Ref id="Server"/></Arg>
+            <Set name="workerName">jetty1</Set>    # Should match with route specified in you apache webserver configuration
+            <Call name="setDriverInfo">
+                <Arg>com.mysql.jdbc.Driver</Arg>
+                <Arg>jdbc:mysql://localhost:3306/sessions?user=root&amp;password=welcome</Arg> # DB credentials
+            </Call>
+            <Set name="scavengeInterval">60</Set>
+        </New>
+    </Set>
+    <Call name="setAttribute">
+        <Arg>jdbcIdMgr</Arg>
+        <Arg><Ref id="jdbcidmgr"/></Arg>
+    </Call>-->
+
+
+</Configure>
