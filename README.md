@@ -1,11 +1,11 @@
 bootstrap
 ==
 
-Bootstrap has two parts to it the backend is a Java application which exposes a restful interface and serves out json to its clients.
+Bootstrap is a full stack web application kick starter project it is divided into two modules where the backend is a Java application which exposes a restful interface and serves out json to its clients.
 
 The frontend is a AngularJS powered user interface which consumes the restful services and renders the user interface.
 
-Each of the components had building blocks bundled with it, feel free to use them or tweak them as per your needs.
+Each of the module has building blocks bundled with it, feel free to use them or tweak them as per your needs.
 
 ##You are the Architect!
 Use with care, you are still the Architect, download it, understand it deeply and modify to fit your context.	
@@ -18,7 +18,7 @@ The [WIKI] (https://github.com/sudarshan89/bootstrap/wiki/Deploying-a-bootstrap-
 
 #### /backend
 
-A seed project to create a backend with Axon,Spring and Hibernate.
+A kick starter module to create a backend with Axon,Spring and Hibernate.
 
 What you get Out of the Box ?
 
@@ -40,7 +40,7 @@ Simple functionality like
 	
 #### /frontend
 
- A seed front end package structure built with Yeoman. Using angular-generator to create it.
+ A kick starter module built with Yeoman. Using angular-generator to create it.
 
 **Install prerequisites**
 
@@ -63,7 +63,7 @@ Bower v1.3.5+
 		
 Run the grunt play:dev command to package the front end and deploy it on the server.
 		
-A simple login module has been added. Click on the "Test Drive" button.
+Simple login functionality has been added. Click on the "Test Drive" button.
 
 A login popup will appear.Enter the below credential.
 
