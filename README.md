@@ -14,7 +14,9 @@ You should ideally not need to dig into the org.nthdimenzion package, just put y
 
 The [WIKI] (https://github.com/sudarshan89/bootstrap/wiki/Deploying-a-bootstrap-application) talks about deploying your bootstrap application using jetty and Apache Webserver, however you can deploy it in any J2EE complaint web/application server.
 
-##### /backend
+==
+
+#### /backend
 
 A seed project to create a backend with Axon,Spring and Hibernate.
 
@@ -34,8 +36,9 @@ Simple functionality like
 	
 	Assigning homepages to user roles
 	
-
-##### /frontend
+==
+	
+#### /frontend
 
  A seed front end package structure built with Yeoman. Using angular-generator to create it.
 
