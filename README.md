@@ -1,6 +1,19 @@
 bootstrap
 ==
 
+Bootstrap has two parts to it the backend is a Java application which exposes a restful interface and serves out json to its clients.
+
+The frontend is a AngularJS powered user interface which consumes the restful services and renders the user interface.
+
+Each of the components had building blocks bundled with it, feel free to use them or tweak them as per your needs.
+
+##You are the Architect!
+Use with care, you are still the Architect, download it, understand it deeply and modify to fit your context.	
+
+You should ideally not need to dig into the org.nthdimenzion package, just put your code into a com.xxx package and get going, you have all infrastructure configured for you.
+
+The [WIKI] (https://github.com/sudarshan89/bootstrap/wiki/Deploying-a-bootstrap-application) talks about deploying your bootstrap application using jetty and Apache Webserver, however you can deploy it in any J2EE complaint web/application server.
+
 ##### /backend
 
 A seed project to create a backend with Axon,Spring and Hibernate.
@@ -57,8 +70,5 @@ Password : admin
 
 
 	
-##You are the Architect!
-Use with care, you are still the Architect, download it, understand it deeply and modify to fit your context.	
 
-You should ideally not need to dig into the org.nthdimenzion package, just put your code into a com.xxx package and get going, you have all infrastructure configured for you
 	
