@@ -19,9 +19,12 @@ The [WIKI] (https://github.com/sudarshan89/bootstrap/wiki/Deploying-a-bootstrap-
 #### /backend
 
 ###### Software pre-requisites
+
 JDK 1.8
+
 MySQL 5.1
 
+==
 
 A kick starter module to create a backend with Axon,Spring and Hibernate.
 
