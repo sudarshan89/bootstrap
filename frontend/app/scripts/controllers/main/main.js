@@ -13,7 +13,7 @@ angular.module("app-name",['ngRoute','http-auth-interceptor','entrancebook.direc
             {templateUrl: '../views/dashboard.html', controller: 'MainCtrl',
                 resolve:{
                     isAuthenticated: ['securityAuthorization',function(securityAuthorization){
-                        return securityAuthorization.requireAuthenticatedUser('["ROLE_ADMIN1"]');
+                        return securityAuthorization.requireAuthenticatedUser('["ROLE_ADMIN"]');
                     }]
                 }
             }
