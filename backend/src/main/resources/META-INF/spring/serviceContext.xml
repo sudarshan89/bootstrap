@@ -104,7 +104,7 @@
     <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
         <property name="caches">
             <set>
-                <bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" p:name="studentId"/>
+                <!--<bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" p:name="studentId"/>-->
             </set>
         </property>
     </bean>

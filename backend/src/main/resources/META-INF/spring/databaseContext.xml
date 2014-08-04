@@ -23,7 +23,7 @@
         <property name="statementsCacheSize" value="20"/>
     </bean>
 
-    <bean id="flyway" class="org.flywaydb.core.Flyway" init-method="migrate">
+    <bean id="flyway" class="org.flywaydb.core.Flyway" init-method="migrate" depends-on="dataSourceRef">
         <property name="dataSource" ref="dataSourceRef"/>
         <property name="initOnMigrate" value="true"/>
     </bean>
