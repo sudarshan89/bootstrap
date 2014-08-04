@@ -1,6 +1,7 @@
 package org.nthdimenzion.security.application.services;
 
 
+import javawebparts.session.SessionSize;
 import org.nthdimenzion.ddd.infrastructure.LoggedInUserHolder;
 import org.nthdimenzion.object.utils.Constants;
 import org.nthdimenzion.security.domain.IUserLoginRepository;
@@ -43,6 +44,9 @@ public class AuthenticationSuccessHandler extends SavedRequestAwareAuthenticatio
         setSystemUserInSession(request, userDetails);
         String homepageUrl = homePageLocatorForLoggedInUser.apply(userLogin);
         setDefaultTargetUrl(homepageUrl);
+        // Get the session size
+        /*SessionSize sessionSize = new SessionSize(request.getSession());
+        System.out.println("\n\n\n sessionSize " + sessionSize.getSessionSize());*/
         super.onAuthenticationSuccess(request, response, auth);
     }
 

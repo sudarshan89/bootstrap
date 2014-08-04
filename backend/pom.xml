@@ -379,13 +379,20 @@
             <systemPath>${basedir}/lib/simmetrics.jar</systemPath>
         </dependency>
 
+
+
         <dependency>
-            <groupId>com.ccavenue</groupId>
-            <artifactId>ccavenue</artifactId>
-            <scope>system</scope>
-            <version>1.0</version>
-            <systemPath>${basedir}/lib/ccavutil.jar</systemPath>
+            <groupId>net.sourceforge.javawebparts</groupId>
+            <artifactId>javawebparts-session</artifactId>
+            <version>1.0-beta4</version>
         </dependency>
+
+        <dependency>
+            <groupId>net.sourceforge.javawebparts</groupId>
+            <artifactId>javawebparts-core</artifactId>
+            <version>1.0-beta4</version>
+        </dependency>
+
 
     </dependencies>
 
