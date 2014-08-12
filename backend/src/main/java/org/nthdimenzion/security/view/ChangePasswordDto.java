@@ -1,5 +1,7 @@
 package org.nthdimenzion.security.view;
 
+import org.nthdimenzion.object.utils.UtilValidator;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Samir
@@ -14,4 +16,9 @@ public class ChangePasswordDto {
     public String newPassword;
 
     public String oldPassword;
+
+    public boolean isOldAndNewPasswordDifferent(){
+        return UtilValidator.isNotEmpty(oldPassword) && UtilValidator.isNotEmpty(newPassword) && oldPassword.equals(newPassword);
+    }
+
 }
