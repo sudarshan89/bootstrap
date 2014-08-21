@@ -1,7 +1,7 @@
 bootstrap
 ==
 
-Bootstrap is a full stack web application kick starter project it is divided into two modules where the backend is a Java application which exposes a restful interface and serves out json to its clients.
+Bootstrap is a full stack web application [kick starter project] (http://martinfowler.com/bliki/Seedwork.html) it is divided into two modules where the backend is a Java application which exposes a restful interface and serves out json to its clients.
 
 The frontend is a AngularJS powered user interface which consumes the restful services and renders the user interface.
 
