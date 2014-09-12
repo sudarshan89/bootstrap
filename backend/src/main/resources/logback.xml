@@ -13,9 +13,9 @@
 
 
     <appender class="ch.qos.logback.core.rolling.RollingFileAppender" name="ERRORFILE">
-        <file>entracebook.log</file>
+        <file>bootstrap.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-            <fileNamePattern>entracebook.%i.log.zip</fileNamePattern>
+            <fileNamePattern>bootstrap.%i.log.zip</fileNamePattern>
             <minIndex>1</minIndex>
             <maxIndex>3</maxIndex>
         </rollingPolicy>
@@ -35,9 +35,9 @@
 
 
     <appender class="ch.qos.logback.core.rolling.RollingFileAppender" name="JOBSFILE">
-        <file>entracebookjobs.log</file>
+        <file>bootstrapjobs.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-            <fileNamePattern>entracebookjobs.%i.log.zip</fileNamePattern>
+            <fileNamePattern>bootstrapjobs.%i.log.zip</fileNamePattern>
             <minIndex>1</minIndex>
             <maxIndex>3</maxIndex>
         </rollingPolicy>
@@ -52,7 +52,6 @@
 
 
     <logger name="org.nthdimenzion" level="DEBUG"/>
-    <logger name="com.macula" level="ERROR"/>
     <logger name="org.springframework.jdbc" level="ERROR"/>
     <logger name="java.sql" level="ERROR"/>
     <logger name="org.hibernate" level="ERROR"/>
