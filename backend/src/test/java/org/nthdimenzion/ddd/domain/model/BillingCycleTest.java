@@ -2,7 +2,6 @@ package org.nthdimenzion.ddd.domain.model;
 
 import org.joda.time.DateTime;
 import org.joda.time.Months;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.nthdimenzion.object.utils.Constants;
 
@@ -14,7 +13,6 @@ import static org.hamcrest.Matchers.is;
  * Author: Nthdimenzion
  */
 
-@Ignore
 public class BillingCycleTest {
 
     @Test
