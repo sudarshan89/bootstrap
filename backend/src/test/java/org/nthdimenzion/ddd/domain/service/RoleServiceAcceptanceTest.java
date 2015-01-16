@@ -2,6 +2,7 @@ package org.nthdimenzion.ddd.domain.service;
 
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.nthdimenzion.ddd.domain.model.Admin;
@@ -29,6 +30,7 @@ public class RoleServiceAcceptanceTest {
 
     @Test
     @DatabaseSetup("classpath:testdata/acceptance/bootstrap/setupDataForDomainRole.xml")
+    @Ignore
     public void testRolePlayedByUser() throws Exception {
         final Admin admin = roleService.getRolePlayedByUser("admin@gmail.com");
         assertThat(admin,notNullValue());
