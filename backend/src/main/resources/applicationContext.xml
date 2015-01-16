@@ -18,11 +18,14 @@
         <context:exclude-filter type="regex" expression=".*model.*"/>
     </context:component-scan>
 
+<!--
     <import resource="META-INF/spring/databaseContext.xml"/>
     <import resource="META-INF/spring/securityContext.xml"/>
     <import resource="META-INF/spring/serviceContext.xml"/>
     <import resource="META-INF/spring/presentationContext.xml"/>
     <import resource="META-INF/spring/quartzContext.xml"/>
+-->
+    <import resource="META-INF/spring/*.xml"/>
 
     <context:annotation-config/>
 
