@@ -41,6 +41,9 @@ public class RoleService {
     };
 
     public <T> T getRolePlayedByUser(String username)  {
+        System.out.println("Blah");
+        System.out.println("Blah");
+        System.out.println("Blah");
         UserLogin userLogin = userLoginRepository.findUserLoginWithUserName(username);
         PersonRole personRole = userLogin.getPersonRole();
         Preconditions.checkNotNull(personRole);
