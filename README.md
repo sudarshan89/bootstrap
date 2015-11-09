@@ -8,6 +8,8 @@ The frontend is a AngularJS powered user interface which consumes the restful se
 Each of the module has building blocks bundled with it, feel free to use them or tweak them as per your needs.
 
 ##You are the Architect!
+
+[![Join the chat at https://gitter.im/sudarshan89/bootstrap](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/sudarshan89/bootstrap?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Use with care, you are still the Architect, download it, understand it deeply and modify to fit your context.	
 
 You should ideally not need to dig into the org.nthdimenzion package, just put your code into a com.xxx package and get going, you have all infrastructure configured for you.
